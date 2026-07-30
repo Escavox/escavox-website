@@ -58,9 +58,13 @@ DON'T
   photos are transparent PNGs, cropped and colour-matched; match that treatment for new ones.
 - Don't claim every device is always-on (only G6+ and G4 are; G6 and USB are manual).
 
-KNOWN PLACEHOLDERS (flag, don't present as final)
-- The contact form is front-end only — it shows a success message but does NOT send yet.
-- Homepage KPIs "18k+ tonnes of waste saved" and "34% fewer quality claims" are placeholders.
+CURRENT STATUS / PLACEHOLDERS
+- Contact form is LIVE — it submits via Web3Forms and emails enquiries to info@escavox.com
+  (the access key lives in contact.html; the recipient is set in the Web3Forms dashboard).
+- Homepage KPIs "18k+ tonnes of waste saved" and "34% fewer quality claims" are still
+  PLACEHOLDER numbers — flag them until real figures are confirmed.
+- The code lives in GitHub (github.com/Escavox/escavox-website) with the team as
+  collaborators. It is not yet deployed to the live escavox.com host.
 
 See README.md and TEAM-GUIDE.md in the project knowledge for full structure and workflow.
 ```

@@ -90,7 +90,9 @@ Everything is tracked: the repo's **commit history** shows exactly who changed w
 
 ## Still to be finalised (don't treat as done)
 
-- The **contact form** currently only shows a success message — it doesn't send yet.
-- The two **homepage KPI numbers** are placeholders.
+- The two **homepage KPI numbers** ("18k+ tonnes", "34% fewer claims") are placeholders.
+- The site isn't **deployed to the live domain** yet — pushes land in GitHub for now.
+
+(The contact form is live — it emails enquiries to **info@escavox.com** via Web3Forms.)
 
 Questions → **Matt**.

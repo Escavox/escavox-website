@@ -116,9 +116,8 @@ Amazon S3 + CloudFront, etc.):
 
 ## 6. Pre-launch checklist
 
-- [ ] **Contact form is a DEMO** — `contact.html` + `js/main.js` (~line 91) just show a
-      success message; **nothing is sent**. Wire it to a real destination before go-live
-      (Netlify Forms, Formspree, or your own endpoint / CRM / email).
+- [x] **Contact form** — live via **Web3Forms**; enquiries email to **info@escavox.com**.
+      The access key is in `contact.html`; change the recipient in the Web3Forms dashboard.
 - [ ] **Homepage KPIs are placeholders** — "18k+ tonnes of waste saved" and "34% fewer
       quality claims" are made-up. Replace with real figures (see §3).
 - [ ] **Confirm device facts** — G6+ (always-on, shock, 5 mo/charge · 8-mo transmission),
