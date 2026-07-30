@@ -113,7 +113,7 @@
         if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
       }).catch(function () {
         if (btn) { btn.disabled = false; btn.textContent = btnText; }
-        alert("Sorry — your message couldn't be sent just now. Please email mmules@escavox.com and we'll get straight back to you.");
+        alert("Sorry — your message couldn't be sent just now. Please email info@escavox.com and we'll get straight back to you.");
       });
     });
   }
