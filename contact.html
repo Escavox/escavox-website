@@ -50,9 +50,11 @@
     <div class="reveal">
       <div class="form-card">
         <div id="form-success" class="form-success">Thanks — your message is on its way. A member of the Escavox team will be in touch shortly.</div>
-        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contact">
-          <p hidden aria-hidden="true" style="display:none"><label>Leave this empty if you're human: <input name="bot-field"></label></p>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="6a22c2f5-51be-4063-b05a-171c054cc472">
+          <input type="hidden" name="subject" value="New enquiry from the Escavox website">
+          <input type="hidden" name="from_name" value="Escavox website">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
           <div class="field-2">
             <div class="field"><label for="fname">First name <span class="req">*</span></label><input id="fname" name="fname" type="text" autocomplete="given-name" required></div>
             <div class="field"><label for="lname">Last name <span class="req">*</span></label><input id="lname" name="lname" type="text" autocomplete="family-name" required></div>

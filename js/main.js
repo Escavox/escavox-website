@@ -88,7 +88,7 @@
     }
   }
 
-  /* Contact form — submits to Netlify Forms via AJAX, keeps inline success message */
+  /* Contact form — submits to Web3Forms via AJAX, keeps inline success message */
   var form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", function (ev) {
@@ -100,13 +100,15 @@
       var btnText = btn ? btn.textContent : "";
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
-      var body = new URLSearchParams(new FormData(form)).toString();
-      fetch(form.getAttribute("action") || "/", {
+      var payload = {};
+      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+
+      fetch(form.getAttribute("action") || "https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body
-      }).then(function (res) {
-        if (!res.ok) throw new Error("Submission failed");
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (res) { return res.json(); }).then(function (json) {
+        if (!json.success) throw new Error(json.message || "Submission failed");
         form.style.display = "none";
         if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
       }).catch(function () {
