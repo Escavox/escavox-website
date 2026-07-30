@@ -88,14 +88,31 @@
     }
   }
 
-  /* Contact form (demo — no backend) */
+  /* Contact form — submits to Netlify Forms via AJAX, keeps inline success message */
   var form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+      if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+
       var ok = document.querySelector("#form-success");
-      form.style.display = "none";
-      if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      var btn = form.querySelector('button[type="submit"]');
+      var btnText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch(form.getAttribute("action") || "/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      }).then(function (res) {
+        if (!res.ok) throw new Error("Submission failed");
+        form.style.display = "none";
+        if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = btnText; }
+        alert("Sorry — your message couldn't be sent just now. Please email mmules@escavox.com and we'll get straight back to you.");
+      });
     });
   }
 
