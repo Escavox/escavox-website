@@ -1,0 +1,10 @@
+# Dependencies (motion.js is vendored in js/vendor — no install needed to run)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Tooling
+.claude-flow/

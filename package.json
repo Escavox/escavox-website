@@ -1,0 +1,9 @@
+{
+  "name": "escavox-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Escavox marketing website — self-contained static site.",
+  "dependencies": {
+    "motion": "^12.42.2"
+  }
+}
