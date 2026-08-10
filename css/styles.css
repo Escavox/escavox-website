@@ -64,8 +64,8 @@ ul { list-style: none; padding: 0; }
   --shadow-blue: 0 20px 46px rgba(3,126,176,.22);
 
   /* Spacing rhythm */
-  --pad-x: clamp(20px, 5vw, 56px);
-  --maxw: 1200px;
+  --pad-x: clamp(20px, 5vw, 64px);
+  --maxw: 1320px;
 }
 
 /* ---------- Base ---------- */
