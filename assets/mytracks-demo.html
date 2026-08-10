@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Escavox MyTracks — Signal to Decision Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07111a; --panel:#0c1823; --panel2:#101f2b; --line:rgba(255,255,255,.11);
+  --text:#f5f8fa; --muted:#91a3b1; --cyan:#00A5E6; --blue:#00B9F1; --amber:#F4D67E; --red:#CF5547; --green:#5FD39A;
+}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:"PT Sans",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
+ radial-gradient(circle at 70% 20%,rgba(0,165,230,.08),transparent 29%),
+ radial-gradient(circle at 18% 78%,rgba(0,185,241,.07),transparent 25%),var(--bg)}
+.stage{width:min(1380px,98vw);height:min(760px,94vh);min-height:620px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.035),rgba(255,255,255,.006));box-shadow:0 40px 120px rgba(0,0,0,.38)}
+.grid{position:absolute;inset:0;opacity:.24;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.topbar{position:absolute;left:34px;right:34px;top:26px;display:flex;align-items:center;justify-content:space-between;z-index:10}.brand{font-weight:700;letter-spacing:-.02em;font-size:19px}.brand span{color:var(--cyan)}
+.live{display:flex;align-items:center;gap:9px;color:#CCCCCC;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.liveDot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(0,165,230,.35);animation:pulse 2.8s infinite}@keyframes pulse{60%{box-shadow:0 0 0 9px rgba(0,165,230,0)}}
+.headline{position:absolute;left:44px;top:92px;width:330px;z-index:5}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:13px}.headline h1{font-size:42px;line-height:1.0;letter-spacing:-.045em;margin:0 0 16px}.headline p{color:var(--muted);font-size:16px;line-height:1.55;max-width:360px;margin:0}
+.hardware{position:absolute;left:44px;top:305px;width:335px;height:255px;z-index:4}.deviceWrap{position:absolute;left:12px;top:38px;width:155px;height:160px;display:grid;place-items:center}.devicePulse,.devicePulse2{position:absolute;width:112px;height:112px;border:1px solid rgba(0,165,230,.35);border-radius:50%;opacity:0}.devicePulse2{width:142px;height:142px;border-color:rgba(0,165,230,.16)}.devicePulse{animation:deviceBeacon 2.2s ease-out infinite}.devicePulse2{animation:deviceBeacon 2.2s .65s ease-out infinite}@keyframes deviceBeacon{0%{transform:scale(.52);opacity:0}12%{opacity:.72}70%,100%{transform:scale(1.28);opacity:0}}.g6{width:104px;height:126px;border-radius:18px;background:linear-gradient(155deg,#176f95,#0c4b70 56%,#083a59);border:1px solid rgba(255,255,255,.22);box-shadow:0 20px 45px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.16);position:relative;opacity:.82;transform:scale(.96)}.g6:before{content:"";position:absolute;inset:8px;border-radius:12px;border:1px solid rgba(255,255,255,.10)}.g6Logo{position:absolute;left:17px;top:21px;font-weight:800;font-size:12px;letter-spacing:-.03em;color:#fff}.g6Logo span{color:#00B9F1}.g6Plus{position:absolute;right:15px;top:21px;font-size:8px;color:#bce9e8;font-weight:700}.g6Led{position:absolute;left:17px;bottom:19px;width:7px;height:7px;border-radius:50%;background:#00B9F1;box-shadow:0 0 10px rgba(116,231,213,.75)}.g6Id{position:absolute;left:17px;bottom:35px;font-size:7px;letter-spacing:.08em;color:#b6d4e1}.hardwareCaption{position:absolute;left:2px;bottom:7px;font-size:9px;color:#718996;text-transform:uppercase;letter-spacing:.12em}.packetPath{position:absolute;left:165px;top:95px;width:175px;height:1px;background:linear-gradient(90deg,rgba(0,165,230,.55),rgba(0,165,230,.05));opacity:0}.packet{position:absolute;left:162px;top:85px;min-width:102px;padding:6px 8px;border-radius:9px;border:1px solid rgba(0,165,230,.28);background:rgba(7,23,32,.9);font-size:8px;color:#bce6e5;opacity:0;transform:translateX(0);box-shadow:0 0 24px rgba(0,165,230,.08)}.packet b{color:#fff;font-weight:650}.wave{position:absolute;left:159px;top:67px;width:42px;height:26px;opacity:0}.wave i{position:absolute;left:0;top:12px;width:8px;height:8px;border:1px solid rgba(0,165,230,.6);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(45deg)}.wave i:nth-child(2){width:16px;height:16px;left:4px;top:8px;opacity:.7}.wave i:nth-child(3){width:25px;height:25px;left:8px;top:3px;opacity:.4}
+.dashboard{position:absolute;right:32px;top:92px;width:min(900px,68vw);height:515px;border:1px solid rgba(255,255,255,.11);border-radius:22px;background:linear-gradient(180deg,rgba(15,31,43,.95),rgba(10,22,32,.96));box-shadow:0 28px 80px rgba(0,0,0,.35);overflow:hidden;opacity:.2;transform:translateY(8px) scale(.985)}
+.dbHead{height:64px;padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.dbTitle{font-size:15px;font-weight:700}.dbTitle small{display:block;margin-top:3px;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase}.analysing{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.spinner{width:12px;height:12px;border-radius:50%;border:1px solid rgba(255,255,255,.14);border-top-color:var(--cyan);animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.content{padding:18px 20px}.sectionLabel{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#77909e;margin-bottom:10px}.shipments{position:relative;height:206px}.columnHeads{display:grid;grid-template-columns:30px 1fr 1.28fr .9fr .9fr .62fr .76fr;padding:0 10px 7px;font-size:8px;color:#718996;text-transform:uppercase;letter-spacing:.08em}.columnHeads span:last-child{text-align:right}.row{position:absolute;left:0;right:0;height:40px;border:1px solid rgba(255,255,255,.075);border-radius:10px;background:rgba(255,255,255,.025);display:grid;grid-template-columns:30px 1fr 1.28fr .9fr .9fr .62fr .76fr;align-items:center;padding:0 10px;font-size:10px;transition:transform .75s cubic-bezier(.2,.8,.2,1),background .4s,border-color .4s;will-change:transform}.row .rank{color:#6f8795;font-weight:700}.row .id{font-weight:650}.row .route,.row .eta{color:#91a3b1}.risk{justify-self:end;padding:4px 7px;border-radius:20px;background:rgba(95,211,154,.09);color:var(--green);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.row.alert{background:rgba(207,85,71,.07);border-color:rgba(207,85,71,.28)}.row.alert .risk{background:rgba(207,85,71,.12);color:#E07A70}.r1{transform:translateY(0)}.r2{transform:translateY(48px)}.r3{transform:translateY(96px)}.r4{transform:translateY(144px)}
+.detail{height:191px;border-top:1px solid var(--line);padding-top:15px;opacity:0;transform:translateY(8px)}.detailGrid{display:grid;grid-template-columns:1.35fr .75fr;gap:18px}.journey{position:relative;height:103px}.journeyLine{position:absolute;left:13px;right:15px;top:39px;height:1px;background:rgba(255,255,255,.14)}.journeyHot{position:absolute;left:59%;width:19%;top:38px;height:3px;background:var(--red);box-shadow:0 0 15px rgba(207,85,71,.35);opacity:0}.stops{display:flex;justify-content:space-between;position:absolute;inset:28px 0 auto}.stop{text-align:center;width:52px}.dot{margin:auto;width:9px;height:9px;border-radius:50%;border:2px solid #527080;background:var(--panel);position:relative;z-index:2}.stop.hot .dot{border-color:var(--red);box-shadow:0 0 0 5px rgba(207,85,71,.09)}.name{margin-top:10px;font-size:8px;color:#708895;white-space:nowrap}.weak{position:absolute;top:68px;left:58%;font-size:9px;color:#E07A70;letter-spacing:.06em;text-transform:uppercase;opacity:0}
+.metricBox{border-left:1px solid var(--line);padding-left:18px}.metricLabel{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#718996}.metric{font-size:40px;letter-spacing:-.04em;font-weight:700;margin:7px 0 2px}.metric span{font-size:18px;color:#E07A70}.metricSub{font-size:10px;color:#999999}.action{margin-top:12px;border:1px solid rgba(244,214,126,.3);background:rgba(244,214,126,.075);border-radius:11px;padding:10px 12px;opacity:0;transform:translateY(5px)}.actionLabel{font-size:8px;letter-spacing:.14em;color:var(--amber);text-transform:uppercase;margin-bottom:4px}.actionText{font-size:11px;font-weight:650}
+.footerLine{position:absolute;left:54px;bottom:35px;font-size:14px;color:#91a3b1;opacity:0}.footerLine strong{color:#f4f8fa;font-weight:650}.stageTag{position:absolute;right:50px;bottom:35px;color:#657d8b;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.replay{position:absolute;right:34px;top:67px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.035);color:#CCCCCC;border-radius:20px;padding:7px 11px;font-size:10px;cursor:pointer;z-index:11}.replay:hover{background:rgba(255,255,255,.065)}
+@media(max-height:760px) and (min-width:901px){.stage{height:96vh;min-height:580px}.dashboard{top:76px;height:490px}.headline{top:76px}.hardware{top:280px}.footerLine{bottom:20px}.stageTag{bottom:20px}}
+@media(max-width:900px){body{padding:0}.stage{width:100vw;height:100vh;min-height:760px;border-radius:0}.headline{left:26px;top:90px;width:calc(100% - 52px)}.headline h1{font-size:38px}.hardware{left:30px;top:250px}.dashboard{left:22px;right:22px;top:420px;width:auto;height:470px;transform-origin:center top}.stageTag,.footerLine{display:none}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="grid"></div>
+  <div class="topbar"><div class="brand">Esca<span>vox</span> · MyTracks™</div><div class="live"><span class="liveDot"></span>Live intelligence</div></div>
+  <button class="replay" onclick="run()">Replay</button>
+
+  <section class="headline">
+    <div class="eyebrow" id="phase">Cold Chain Intelligence</div>
+    <h1>Decisions,<br>not dashboards.</h1>
+    <p>Raw cold-chain signals become ranked commercial risk — so your team knows what matters, where value is being lost and what to do next.</p>
+  </section>
+
+  <div class="hardware" id="hardware">
+    <div class="deviceWrap">
+      <div class="devicePulse" id="pulse1"></div><div class="devicePulse2" id="pulse2"></div>
+      <div class="g6" id="g6">
+        <div class="g6Logo">Esca<span>vox</span></div><div class="g6Plus">G6+</div>
+        <div class="g6Id">67510F1E62</div><div class="g6Led"></div>
+      </div>
+    </div>
+    <div class="wave" id="wave"><i></i><i></i><i></i></div>
+    <div class="packetPath" id="packetPath"></div>
+    <div class="packet" id="packet"><b>67510F1E62</b> · 5.8°C · 89% RH</div>
+    <div class="hardwareCaption">G6+ live shipment telemetry</div>
+  </div>
+
+  <div class="dashboard" id="dashboard">
+    <div class="dbHead"><div class="dbTitle">Active shipments<small>Commercial risk · worst first</small></div><div class="analysing" id="analysing"><span class="spinner"></span><span>Interpreting signals</span></div></div>
+    <div class="content">
+      <div class="sectionLabel">Priority queue</div>
+      <div class="columnHeads"><span>#</span><span>Device ID</span><span>Container ID</span><span>Destination</span><span>Produce</span><span>ETA</span><span>Risk rating</span></div><div class="shipments">
+        <div class="row r1" id="row1"><div class="rank">01</div><div class="route">67510F2A9C</div><div class="route">MSCU4839217</div><div class="route">Rotterdam</div><div class="route">Grapes</div><div class="eta">8d 4h</div><div class="risk">Low</div></div>
+        <div class="row r2" id="row2"><div class="rank">02</div><div class="route">67510F7B31</div><div class="route">MRKU6127843</div><div class="route">London</div><div class="route">Blueberries</div><div class="eta">3d 7h</div><div class="risk">Low</div></div>
+        <div class="row r3" id="row3"><div class="rank">03</div><div class="route">67510FC84D</div><div class="route">TCLU8291046</div><div class="route">Dubai</div><div class="route">Citrus</div><div class="eta">1d 2h</div><div class="risk">Watch</div></div>
+        <div class="row r4" id="row4"><div class="rank">04</div><div class="route">67510F1E62</div><div class="route">CMAU7415820</div><div class="route">Amsterdam</div><div class="route">Grapes</div><div class="eta">5d 1h</div><div class="risk">Low</div></div>
+      </div>
+      <div class="detail" id="detail">
+        <div class="sectionLabel">Why this shipment moved to #1</div>
+        <div class="detailGrid">
+          <div class="journey">
+            <div class="journeyLine"></div><div class="journeyHot" id="journeyHot"></div>
+            <div class="stops">
+              <div class="stop"><div class="dot"></div><div class="name">Farm</div></div>
+              <div class="stop"><div class="dot"></div><div class="name">Packhouse</div></div>
+              <div class="stop"><div class="dot"></div><div class="name">Cold store</div></div>
+              <div class="stop hot"><div class="dot"></div><div class="name">Port</div></div>
+              <div class="stop"><div class="dot"></div><div class="name">Vessel</div></div>
+              <div class="stop"><div class="dot"></div><div class="name">DC</div></div>
+            </div>
+            <div class="weak" id="weak">Weak link identified</div>
+          </div>
+          <div class="metricBox">
+            <div class="metricLabel">Shelf life at risk</div>
+            <div class="metric"><span id="days">0.0</span><span>d</span></div>
+            <div class="metricSub">Modelled quality impact</div>
+            <div class="action" id="action"><div class="actionLabel">Action recommended</div><div class="actionText">Prioritise Shipment EVX-1842</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footerLine" id="footer"><strong>Signal → insight → action.</strong> Cold Chain Intelligence that tells you what to do next.</div>
+  <div class="stageTag">Concept animation · 8 sec</div>
+</div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let timers=[]; const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
+function reset(){timers.forEach(clearTimeout);timers=[];
+  ['#pulse1','#pulse2','#wave','#packetPath','#packet'].forEach(sel=>{let x=$(sel);x.style.cssText=''});
+  $('#g6').style.cssText='';
+  $('#dashboard').style.transition='none';$('#dashboard').style.opacity=.2;$('#dashboard').style.transform='translateY(8px) scale(.985)';
+  [['row1',0],['row2',48],['row3',96],['row4',144]].forEach(([id,y])=>{let r=$('#'+id);r.style.transform=`translateY(${y}px)`;r.classList.remove('alert')});
+  $('#row1 .rank').textContent='01';$('#row2 .rank').textContent='02';$('#row3 .rank').textContent='03';$('#row4 .rank').textContent='04';$('#row4 .risk').textContent='Low';
+  $('#detail').style.cssText='';$('#journeyHot').style.opacity=0;$('#weak').style.opacity=0;$('#action').style.cssText='';$('#days').textContent='0.0';$('#footer').style.opacity=0;$('#phase').textContent='Cold Chain Intelligence';
+  $('#analysing').innerHTML='<span class="spinner"></span><span>Interpreting signals</span>';
+}
+function animateNumber(el,to,duration){let st=performance.now();function tick(now){let p=Math.min((now-st)/duration,1);let e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(1);if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+function run(){reset(); requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  $('#phase').textContent='01 · G6+ Capture';
+  later(()=>{let g=$('#g6');g.style.transition='opacity .45s,transform .6s';g.style.opacity=1;g.style.transform='scale(1)'},180);
+  later(()=>{$('#wave').style.transition='opacity .35s';$('#wave').style.opacity=1},650);
+  later(()=>{let path=$('#packetPath');path.style.transition='opacity .35s';path.style.opacity=.9;let pkt=$('#packet');pkt.style.opacity=1;pkt.animate([{transform:'translateX(0)',opacity:.95},{transform:'translateX(145px)',opacity:.95},{transform:'translateX(175px)',opacity:0}],{duration:1150,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'})},900);
+  later(()=>{$('#phase').textContent='02 · MyTracks Interpret';let d=$('#dashboard');d.style.transition='opacity .7s, transform .8s cubic-bezier(.2,.8,.2,1)';d.style.opacity=1;d.style.transform='translateY(0) scale(1)';$('#row4').style.background='rgba(0,165,230,.06)';setTimeout(()=>$('#row4').style.background='',500)},1550);
+  later(()=>{$('#phase').textContent='03 · Re-rank by Risk';let r=$('#row4');r.classList.add('alert');$('#row4 .risk').textContent='High risk';r.style.transform='translateY(0)';$('#row1').style.transform='translateY(48px)';$('#row2').style.transform='translateY(96px)';$('#row3').style.transform='translateY(144px)';$('#row4 .rank').textContent='01';$('#row1 .rank').textContent='02';$('#row2 .rank').textContent='03';$('#row3 .rank').textContent='04';$('#analysing').innerHTML='<span style="color:var(--red)">↑</span><span>Priority changed</span>'},3100);
+  later(()=>{$('#phase').textContent='04 · Identify';let d=$('#detail');d.style.transition='opacity .6s, transform .6s';d.style.opacity=1;d.style.transform='translateY(0)';$('#journeyHot').style.transition='opacity .5s';$('#journeyHot').style.opacity=1;$('#weak').style.transition='opacity .5s .15s';$('#weak').style.opacity=1},4300);
+  later(()=>{$('#phase').textContent='05 · Quantify';animateNumber($('#days'),2.4,950)},5450);
+  later(()=>{$('#phase').textContent='06 · Act';let a=$('#action');a.style.transition='opacity .5s,transform .55s';a.style.opacity=1;a.style.transform='translateY(0)';$('#footer').style.transition='opacity .7s .2s';$('#footer').style.opacity=1;$('#analysing').innerHTML='<span style="color:var(--green)">●</span><span>Decision ready</span>'},6550);
+  later(()=>{$('#phase').textContent='Cold Chain Intelligence'},8050);
+}))}
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function showStatic(){ reset(); var d=$('#dashboard'); d.style.transition='none'; d.style.opacity=1; d.style.transform='none'; }
+showStatic();                                              // composed poster frame on load
+window.addEventListener('message', function(e){ if(e.data==='mt-run' && !RM) run(); });  // play when scrolled into view
+</script>
+</body>
+</html>
