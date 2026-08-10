@@ -193,7 +193,7 @@ section { position: relative; }
 .hero-head h1 { font-size: clamp(2rem, 4.1vw, 3.3rem); }
 .hero-head h1 .h1-line { white-space: nowrap; }
 .hero-head .hero-sub { max-width: 800px; }
-.hero-lower { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(24px, 4vw, 56px); align-items: center; margin-top: clamp(30px, 4vw, 48px); }
+.hero-lower { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(24px, 4vw, 56px); align-items: start; margin-top: clamp(20px, 2.6vw, 32px); }
 .hero-lower-left { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 40px); }
 .hero-lower-left .hero-cta, .hero-lower-left .hero-trust { margin-top: 0; }
 @media (min-width: 881px) { .hero-lower .orbit-stage { transform: translateY(-96px); } }
