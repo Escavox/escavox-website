@@ -12,6 +12,17 @@
 <link rel="stylesheet" href="brand/brand.css">
 <link rel="stylesheet" href="brand/brand.dark.css">
 <link rel="stylesheet" href="css/experience.css">
+<!-- Pinned ESM deps (jsDelivr). Import map so no bundler is needed. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
+    "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js",
+    "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.mjs"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -119,8 +130,9 @@
 </footer>
 
 <script>
-  // DOM-first: footer year only. WebGL scene engine is attached in Step 2.
+  // DOM-first: footer year. The WebGL scene engine loads as a module below.
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script type="module" src="js/experience.js"></script>
 </body>
 </html>
