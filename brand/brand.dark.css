@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Escavox brand — DARK extension
+   v1.1.0
+
+   WHY THIS FILE EXISTS
+   The official branding guide is entirely light-surface: PT Sans on white,
+   #666666 body, #037EB0 headings. The post-season dashboard is a deliberate
+   dark theme, and the guide's values do not survive the transfer:
+     · #037EB0 H1 on #080d15 is close to invisible
+     · #666666 body text on dark is unreadable
+   So the blue ramp is INVERTED for dark surfaces — headings take the light end
+   of the official ramp rather than the dark end. Every value below is either
+   an official brand colour or a documented derivation from one. Nothing is
+   invented.
+
+   This file does NOT replace styles.css. It corrects the brand layer inside it.
+   ========================================================================== */
+
+:root {
+  /* ---- OFFICIAL brand colours. These are the corrections. ---------------
+     styles.css currently declares --brand:#F2811E and --cyan:#2BA6E6.
+     Neither is an Escavox colour. The guide gives #EF8131 and #00A5E6.
+     The difference is small but it is the reason dashboards never quite
+     match the decks and PDFs. */
+  --brand:      #EF8131;   /* was #F2811E — official orange */
+  --cyan:       #00A5E6;   /* was #2BA6E6 — official blue 500 */
+
+  /* derived tints of the official orange, for hover and de-emphasis.
+     Lightened in HSL from #EF8131 only — no new hue introduced. */
+  --brand2:     #F49B5C;   /* was #F79A45 */
+  --brand-soft: rgba(239,129,49,.12);
+
+  /* legacy aliases in styles.css — kept so existing selectors stay valid */
+  --grape:  #EF8131;
+  --grape2: #F49B5C;
+  --plum:   #F4A24E;
+
+  /* ---- heading ramp, inverted for dark ---------------------------------
+     Official light-surface ramp is H1 #037EB0 → H4 #00B9F1 (dark to light).
+     On dark surfaces that order reverses: brightest carries most weight. */
+  --h1-dark: #00B9F1;
+  --h2-dark: #00A5E6;
+  --h3-dark: #008ACA;
+  --h4-dark: #4FC5F0;   /* derived: #00A5E6 lightened, for legibility at 15px */
+
+  /* ---- typography ------------------------------------------------------
+     PT Sans replaces Inter. Note PT Sans has no weights above 700, so the
+     h1 font-weight:750 in styles.css must come down to 700 or the browser
+     will synthesise a faux-bold and the wordmark-adjacent type will look
+     subtly wrong. */
+  --font: 'PT Sans','Aptos','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+
+  /* ---- data colours: DELIBERATELY UNCHANGED ----------------------------
+     styles.css keeps green→amber→red for data, and that call is correct —
+     see the note in INTEGRATION.md §3. Brand colour does not belong on a
+     quality scale. Left here only as named aliases so app.js can stop
+     hardcoding them. */
+  --d-excellent: #22c55e;
+  --d-good:      #84cc16;
+  --d-fair:      #f59e0b;
+  --d-okay:      #fb923c;
+  --d-poor:      #ef4444;
+  --d-pos:       #4ade80;
+  --d-neg:       #f87171;
+  --d-neutral:   #93a4b6;
+  --d-series:    #38bdf8;
+}
+
+/* Heading colours on the dark surface. Applied after styles.css so these win. */
+h1 { color: var(--ink); font-weight: 700; }
+h2 { color: var(--h2-dark); }
+.sec-h h2 { color: var(--h2-dark); }
+.panel h3 { color: var(--h3-dark); }
+
+/* The kicker currently uses --brand2; with the corrected orange it stays
+   on-brand automatically. No rule needed. */

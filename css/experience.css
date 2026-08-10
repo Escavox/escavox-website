@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Escavox — Cold Chain Intelligence experience (dark, scroll narrative)
+   Step 1: static DOM + dark theme. WebGL canvas attaches in Step 2.
+
+   Colour discipline (from the brief):
+     blue  = in spec / connected     (--esc-blue-500 / --esc-blue-400)
+     sand  = watch                   (--esc-watch)
+     orange= warning — accent only   (--esc-warning)   never a surface
+     red   = breach                  (--esc-breach)
+   Dark SURFACE values are the site's established dark tokens (navy family),
+   because brand.dark.css patches the dashboard and carries no surface tokens.
+   ========================================================================== */
+
+:root {
+  --xp-bg:        #061019;   /* deep base, derived from --navy #072130 */
+  --xp-bg-2:      #08182380; /* panel/scrim tint */
+  --xp-text:      #DCE8F0;   /* body on dark */
+  --xp-text-dim:  #9DB4C2;   /* secondary on dark */
+  --xp-heading:   #FFFFFF;
+  --xp-maxw:      1180px;
+  --xp-pad:       clamp(22px, 5vw, 72px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--xp-bg);
+  color: var(--xp-text);
+  font-family: var(--esc-font, 'PT Sans', system-ui, sans-serif);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .01em;
+  overflow-x: hidden;
+}
+
+/* --- Skip link ----------------------------------------------------------- */
+.skip-link { position: fixed; left: 12px; top: -64px; z-index: 1000; background: var(--esc-blue-600); color: #fff; padding: 10px 18px; border-radius: 6px; font-weight: 700; transition: top .18s ease; }
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--esc-blue-400); outline-offset: 3px; border-radius: 4px; }
+
+/* --- Fixed canvas + static fallback -------------------------------------- */
+#scene-canvas,
+.canvas-fallback {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+}
+/* Until the WebGL engine draws, a calm dark field keeps the page intentional. */
+.canvas-fallback {
+  background:
+    radial-gradient(1100px 700px at 78% 12%, rgba(0,165,230,.16), transparent 60%),
+    radial-gradient(900px 700px at 15% 88%, rgba(0,138,202,.12), transparent 62%),
+    linear-gradient(180deg, #061019 0%, #04101a 100%);
+}
+#scene-canvas { background: transparent; }
+
+/* --- Header -------------------------------------------------------------- */
+.xp-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: clamp(16px, 2vw, 24px) var(--xp-pad);
+}
+.xp-logo img { height: 26px; width: auto; display: block; }
+.xp-nav { display: flex; align-items: center; gap: clamp(16px, 2vw, 28px); }
+.xp-nav a { color: var(--xp-text); text-decoration: none; font-weight: 700; font-size: .95rem; letter-spacing: .01em; }
+.xp-nav a:hover { color: #fff; }
+
+/* --- Buttons (orange is warning only → CTAs are blue) -------------------- */
+.btn-cta, .btn-ghost {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 700; font-size: 1rem; letter-spacing: .01em;
+  padding: 13px 24px; border-radius: 999px; text-decoration: none;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.btn-cta { background: var(--esc-blue-500); color: #04121c; border: 1px solid var(--esc-blue-500); }
+.btn-cta svg { width: 18px; height: 18px; }
+.btn-cta:hover { background: var(--esc-blue-400); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,165,230,.28); }
+.btn-ghost { background: transparent; color: var(--xp-text); border: 1px solid rgba(220,232,240,.28); }
+.btn-ghost:hover { border-color: var(--esc-blue-400); color: #fff; transform: translateY(-2px); }
+.btn-cta:active, .btn-ghost:active { transform: translateY(0) scale(.985); }
+
+/* --- Scenes -------------------------------------------------------------- */
+.scene {
+  position: relative; z-index: 1;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; align-items: center;
+  padding: clamp(96px, 12vh, 160px) var(--xp-pad) clamp(64px, 10vh, 120px);
+  overflow-x: clip;   /* contain the copy scrim; no horizontal scroll */
+}
+/* Per-scene semantic luminous tint (also the no-WebGL fallback per scene). */
+.scene::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+}
+.scene-hero::before    { background: radial-gradient(900px 620px at 72% 40%, rgba(0,185,241,.20), transparent 62%); }
+.scene-chain::before   { background: radial-gradient(760px 560px at 30% 50%, rgba(0,165,230,.16), transparent 60%), radial-gradient(360px 300px at 68% 62%, rgba(239,129,49,.16), transparent 66%); }
+.scene-field::before   { background: linear-gradient(115deg, rgba(0,165,230,.14) 0%, rgba(244,214,126,.12) 55%, rgba(239,129,49,.14) 100%); }
+.scene-funnel::before  { background: radial-gradient(700px 420px at 50% 8%, rgba(0,165,230,.16), transparent 60%), radial-gradient(420px 360px at 50% 96%, rgba(239,129,49,.18), transparent 64%); }
+.scene-profile::before { background: radial-gradient(820px 520px at 78% 62%, rgba(244,214,126,.14), transparent 60%), radial-gradient(420px 320px at 82% 70%, rgba(239,129,49,.14), transparent 66%); }
+.scene-network::before { background: radial-gradient(760px 620px at 50% 50%, rgba(0,138,202,.18), transparent 64%); }
+
+/* Copy block + contrast scrim (radial dark behind text, not a global veil). */
+.scene-copy { position: relative; width: 100%; max-width: var(--xp-maxw); margin-inline: auto; }
+.scene-copy.scrim::before {
+  content: ""; position: absolute; z-index: -1;
+  inset: -10% -4%;
+  background: radial-gradient(120% 120% at 30% 40%, rgba(4,12,20,.82), rgba(4,12,20,.45) 55%, transparent 78%);
+  filter: blur(2px);
+}
+.scene-network .scene-copy, .scene-funnel .scene-copy { text-align: center; }
+.scene-network .scene-copy.scrim::before,
+.scene-funnel  .scene-copy.scrim::before { background: radial-gradient(120% 120% at 50% 45%, rgba(4,12,20,.82), rgba(4,12,20,.45) 55%, transparent 78%); }
+
+/* --- Typography ---------------------------------------------------------- */
+.eyebrow {
+  margin: 0 0 18px; font-weight: 700; font-size: .8rem;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--esc-blue-400);
+}
+h1, h2 { color: var(--xp-heading); font-weight: 400; letter-spacing: .02em; margin: 0; }
+h1 { font-size: clamp(2.4rem, 6.2vw, 5rem); line-height: 1.04; }
+h2 { font-size: clamp(1.9rem, 4.2vw, 3.4rem); line-height: 1.1; max-width: 20ch; }
+.scene-network h2, .scene-funnel h2 { max-width: none; margin-inline: auto; }
+.lead, .body {
+  margin: clamp(20px, 3vw, 30px) 0 0; max-width: 62ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.6;
+  color: var(--xp-text); opacity: .85;
+}
+.scene-network .lead, .scene-network .body,
+.scene-funnel .body { margin-inline: auto; }
+.lead strong, .body strong { color: #fff; font-weight: 700; opacity: 1; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(30px, 4vw, 44px); }
+.scene-network .cta-row, .scene-funnel .cta-row { justify-content: center; }
+
+/* Stage labels (small caps around the ring in Step 2; a legible row for now) */
+.stage-list {
+  list-style: none; counter-reset: stage; padding: 0;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  display: flex; flex-wrap: wrap; gap: 10px 12px; max-width: 780px;
+}
+.stage-list li {
+  counter-increment: stage;
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+  color: var(--xp-text-dim);
+  padding: 8px 14px; border: 1px solid rgba(0,165,230,.28); border-radius: 999px;
+}
+.stage-list li::before { content: counter(stage, decimal-leading-zero) "  "; color: var(--esc-blue-400); }
+
+/* Counters */
+.counter-row { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(28px, 6vw, 80px); margin: clamp(34px, 5vw, 56px) 0 0; }
+.counter .num { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 700; color: #fff; line-height: 1; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.counter .lbl { margin-top: 10px; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--xp-text-dim); }
+.foot-note { margin-top: 28px; font-size: .82rem; color: var(--xp-text-dim); opacity: .8; }
+
+/* --- Footer -------------------------------------------------------------- */
+.xp-footer { position: relative; z-index: 1; padding: clamp(56px, 8vh, 96px) var(--xp-pad); border-top: 1px solid rgba(220,232,240,.12); background: rgba(4,12,20,.6); }
+.xp-footer-inner { max-width: var(--xp-maxw); margin-inline: auto; text-align: center; }
+.xp-footer-mark { height: 34px; width: auto; opacity: .9; }
+.tagline { margin: 16px 0 4px; font-size: 1.05rem; color: var(--xp-text); letter-spacing: .04em; }
+.copyright { margin: 0; font-size: .82rem; color: var(--xp-text-dim); }
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 640px) {
+  .scene { min-height: auto; padding-block: clamp(80px, 16vh, 120px); }
+  .xp-nav a:not(.btn-cta) { display: none; }  /* keep only the primary CTA on small screens */
+}
+
+/* --- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn-cta, .btn-ghost { transition: none; }
+}

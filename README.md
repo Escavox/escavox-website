@@ -135,3 +135,22 @@ Amazon S3 + CloudFront, etc.):
   The site does **not** need `npm install` to run — you can ignore or delete them.
 - Animations respect `prefers-reduced-motion` and degrade gracefully if JS is disabled.
 - Everything is responsive (mobile / tablet / desktop) and theme-consistent.
+
+---
+
+## Cold Chain Intelligence experience — `experience.html` (in progress, branch `experience-webgl`)
+
+A dark, scroll-driven landing experience (six data-meaningful scenes). Built per
+`escavox-site-brief.md`. **Step 1 (static dark DOM) is done**; the WebGL canvas
+(Three.js + GSAP/ScrollTrigger + Lenis) is attached in later steps.
+
+- Standalone page — the current light site is untouched. Merge to the Pages branch
+  only at each checkpoint.
+- `css/experience.css` — dark theme. Data/semantic colours come from `--esc-*`
+  (brand kit); dark **surface** values use the site's navy family (the brand kit's
+  `brand.dark.css` patches the dashboard and carries no standalone surface tokens).
+
+### Vendored brand files — `brand/`
+`brand/brand.css` and `brand/brand.dark.css` are **copies** of
+`~/Documents/Escavox/shared/brand/` (GitHub Pages can't reach that path). If the
+brand kit changes, re-copy them deliberately — they will not update on their own.
