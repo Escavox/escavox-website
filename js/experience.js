@@ -1,11 +1,12 @@
 /* ==========================================================================
    Escavox — Cold Chain Intelligence experience · WebGL scene engine
-   Step 2: Scene 1 (network globe + trade-lane arcs) and Scene 2 (chain torus
-   that illuminates in sequence and breaks). Single fixed canvas behind the DOM.
-
-   Colour discipline: blue = in spec/connected, orange = warning, red = breach.
-   Gates: mobile, prefers-reduced-motion and no-WebGL all keep the static CSS
-   fallback and never start the renderer. The DOM already carries all meaning.
+   Scene 1: iridescent "shell" — a flowing curtain of particle strands
+            (every strand a track in motion). Blue = in spec / connected.
+   Scene 2: the chain torus — segments illuminate in sequence, one flares
+            orange→red and the ring breaks (quality lost at a link).
+   Single fixed canvas behind the DOM. Colour discipline: orange/red only
+   where a threshold is crossed. Mobile / reduced-motion / no-WebGL keep the
+   static CSS fallback and never start the renderer.
    ========================================================================== */
 
 import * as THREE from 'three';
@@ -23,16 +24,15 @@ function webglSupported() {
   } catch (e) { return false; }
 }
 
-// Gate: bail to the static CSS fallback under any of these conditions.
 if (isMobile || reduce || !webglSupported()) {
-  // nothing to do — .canvas-fallback + per-scene ::before tints stay visible.
+  // static CSS fallback stays; no renderer.
 } else {
   try { start(); } catch (e) { console.warn('[experience] WebGL init failed, using static fallback:', e); }
 }
 
 function start() {
   gsap.registerPlugin(ScrollTrigger);
-  document.body.classList.add('webgl-on');   // CSS drops the scene-1/2 tints so particles read cleanly
+  document.body.classList.add('webgl-on');
 
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'high-performance' });
@@ -41,102 +41,79 @@ function start() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-  camera.position.set(0, 0, 5.4);
+  camera.position.set(0, 0, 3.8);
 
   const COL = {
     blue:   new THREE.Color('#00A5E6'),
     blue2:  new THREE.Color('#00B9F1'),
+    deep:   new THREE.Color('#0A3A63'),
     orange: new THREE.Color('#EF8131'),
     red:    new THREE.Color('#CF5547'),
   };
 
   const lowPerf = (window.innerWidth < 1100);
-  const GLOBE_N = lowPerf ? 8000 : 12000;
-  const TORUS_N = lowPerf ? 5500 : 8000;
 
-  /* ---- helpers --------------------------------------------------------- */
-  const latLonToVec3 = (lat, lon, r) => {
-    const phi = (90 - lat) * Math.PI / 180, theta = (lon + 180) * Math.PI / 180;
-    return new THREE.Vector3(
-      -r * Math.sin(phi) * Math.cos(theta),
-       r * Math.cos(phi),
-       r * Math.sin(phi) * Math.sin(theta)
-    );
-  };
-
-  const pointFrag = `
-    precision mediump float;
-    uniform vec3 uColor; varying float vAlpha;
-    void main(){
-      float d = length(gl_PointCoord - 0.5);
-      float a = smoothstep(0.5, 0.0, d);
-      gl_FragColor = vec4(uColor, a * vAlpha);
-    }`;
-
-  /* ---- Scene 1: network globe ----------------------------------------- */
+  /* ---- Scene 1: iridescent shell (particle curtain) ------------------- */
   const g1 = new THREE.Group(); scene.add(g1);
-  g1.position.x = 0.95; g1.scale.setScalar(0.92);   // sit to the right; copy stays dominant
 
-  const gPos = new Float32Array(GLOBE_N * 3);
-  const gPhase = new Float32Array(GLOBE_N);
-  const golden = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < GLOBE_N; i++) {
-    const y = 1 - (i / (GLOBE_N - 1)) * 2, r = Math.sqrt(1 - y * y), t = golden * i;
-    gPos[i*3] = Math.cos(t) * r * 1.6; gPos[i*3+1] = y * 1.6; gPos[i*3+2] = Math.sin(t) * r * 1.6;
-    gPhase[i] = Math.random();
+  const COLS = lowPerf ? 200 : 280;               // vertical strands
+  const ROWS = lowPerf ? 48 : 68;                 // points per strand
+  const N1 = COLS * ROWS;
+  const cPos = new Float32Array(N1 * 3), cUV = new Float32Array(N1 * 2), cRand = new Float32Array(N1);
+  let ix = 0;
+  for (let ci = 0; ci < COLS; ci++) {
+    for (let ri = 0; ri < ROWS; ri++) {
+      const u = ci / (COLS - 1), v = ri / (ROWS - 1);
+      cPos[ix*3]   = (u - 0.5) * 7.0;
+      cPos[ix*3+1] = (v - 0.5) * 3.6;
+      cPos[ix*3+2] = 0;
+      cUV[ix*2] = u; cUV[ix*2+1] = v;
+      cRand[ix] = Math.random();
+      ix++;
+    }
   }
-  const gGeo = new THREE.BufferGeometry();
-  gGeo.setAttribute('position', new THREE.BufferAttribute(gPos, 3));
-  gGeo.setAttribute('aPhase', new THREE.BufferAttribute(gPhase, 1));
+  const cGeo = new THREE.BufferGeometry();
+  cGeo.setAttribute('position', new THREE.BufferAttribute(cPos, 3));
+  cGeo.setAttribute('aUV', new THREE.BufferAttribute(cUV, 2));
+  cGeo.setAttribute('aRand', new THREE.BufferAttribute(cRand, 1));
   const gMat = new THREE.ShaderMaterial({
-    uniforms: { uTime:{value:0}, uSize:{value: DPR*9.0}, uOpacity:{value:1}, uColor:{value: COL.blue2} },
+    uniforms: {
+      uTime:{value:0}, uSize:{value: DPR*9.0}, uOpacity:{value:1},
+      uBlue:{value: COL.blue}, uBlue2:{value: COL.blue2}, uDeep:{value: COL.deep},
+    },
     vertexShader: `
-      uniform float uTime, uSize, uOpacity; attribute float aPhase; varying float vAlpha;
+      uniform float uTime, uSize; attribute vec2 aUV; attribute float aRand;
+      varying vec2 vUV; varying float vGlow;
       void main(){
-        vec3 p = position + normalize(position) * sin(uTime*0.6 + aPhase*6.2831)*0.02;
+        vec3 p = position;
+        float t = uTime;
+        // coherent horizontal waves across strands + a depth ripple = flowing shell
+        float wave = sin(aUV.x*9.0 + t*0.55)*0.42 + sin(aUV.x*20.0 - t*0.35)*0.14;
+        p.z += wave + sin(aUV.y*3.5 + t*0.5)*0.18;
+        p.x += sin(aUV.y*6.0 + aUV.x*12.0 + t*0.5)*0.05;   // gentle comb sway
         vec4 mv = modelViewMatrix * vec4(p,1.0);
         gl_PointSize = uSize / -mv.z;
         gl_Position = projectionMatrix * mv;
-        vAlpha = uOpacity * (0.28 + 0.30*sin(uTime*0.9 + aPhase*6.2831));
+        vUV = aUV;
+        vGlow = 0.3 + (0.4 + 0.6*sin(t*0.8 + aRand*6.2831)) * (0.5 + 0.5*(wave+0.5));
       }`,
-    fragmentShader: pointFrag,
+    fragmentShader: `
+      precision mediump float; uniform vec3 uBlue,uBlue2,uDeep; uniform float uOpacity;
+      varying vec2 vUV; varying float vGlow;
+      void main(){
+        float a = smoothstep(0.5, 0.0, length(gl_PointCoord - 0.5));
+        vec3 col = mix(uDeep, uBlue, smoothstep(0.0,0.7,vUV.y));
+        col = mix(col, uBlue2, smoothstep(0.6,1.0,vUV.y));
+        gl_FragColor = vec4(col, a * vGlow * uOpacity * 1.5);
+      }`,
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
   });
-  g1.add(new THREE.Points(gGeo, gMat));
-
-  // Trade-lane arcs: southern Africa → Europe, UK, Middle East, SE Asia.
-  const SA = latLonToVec3(-30, 22, 1.6);
-  const dests = [ latLonToVec3(50,10,1.6), latLonToVec3(54,-2,1.6), latLonToVec3(25,50,1.6), latLonToVec3(6,110,1.6) ];
-  const arcMats = [];
-  dests.forEach((d, k) => {
-    const mid = SA.clone().add(d).multiplyScalar(0.5).setLength(1.6 + 0.55);
-    const curve = new THREE.QuadraticBezierCurve3(SA, mid, d);
-    const N = 120, pos = new Float32Array(N*3), tt = new Float32Array(N);
-    curve.getPoints(N-1).forEach((p,i)=>{ pos[i*3]=p.x; pos[i*3+1]=p.y; pos[i*3+2]=p.z; tt[i]=i/(N-1); });
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
-    geo.setAttribute('aT', new THREE.BufferAttribute(tt,1));
-    const mat = new THREE.ShaderMaterial({
-      uniforms: { uHead:{value:-0.2}, uColor:{value: COL.blue2}, uOpacity:{value:1} },
-      vertexShader: `
-        uniform float uHead, uOpacity; attribute float aT; varying float vA;
-        void main(){
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-          float behind = smoothstep(0.18, 0.0, uHead - aT);      // trail behind the head
-          float ahead  = step(aT, uHead);
-          vA = uOpacity * behind * ahead;
-        }`,
-      fragmentShader: `precision mediump float; uniform vec3 uColor; varying float vA;
-        void main(){ if(vA<=0.01) discard; gl_FragColor = vec4(uColor, vA); }`,
-      transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-    });
-    const line = new THREE.Line(geo, mat);
-    g1.add(line); arcMats.push({ mat, offset: k * 0.9 });
-  });
+  g1.add(new THREE.Points(cGeo, gMat));
 
   /* ---- Scene 2: the chain torus --------------------------------------- */
   const g2 = new THREE.Group(); g2.rotation.x = -0.5; g2.visible = false; scene.add(g2);
 
+  const TORUS_N = lowPerf ? 6000 : 9000;
   const R = 1.5, rr = 0.42;
   const tPos = new Float32Array(TORUS_N*3), tAng = new Float32Array(TORUS_N), tRand = new Float32Array(TORUS_N);
   for (let i = 0; i < TORUS_N; i++) {
@@ -153,16 +130,15 @@ function start() {
   tGeo.setAttribute('aRand', new THREE.BufferAttribute(tRand,1));
   const tMat = new THREE.ShaderMaterial({
     uniforms: {
-      uTime:{value:0}, uSize:{value: DPR*10.0}, uOpacity:{value:0}, uReveal:{value:0},
+      uTime:{value:0}, uSize:{value: DPR*9.0}, uOpacity:{value:0}, uReveal:{value:0},
       uBlue:{value: COL.blue}, uOrange:{value: COL.orange}, uRed:{value: COL.red},
     },
     vertexShader: `
-      uniform float uTime,uSize,uReveal; attribute float aAngle,aRand;
-      varying float vAngle;
+      uniform float uTime,uSize,uReveal; attribute float aAngle,aRand; varying float vAngle;
       void main(){
         vec3 p = position;
         float brk = smoothstep(0.05,0.0,abs(aAngle-0.82)) * smoothstep(0.75,1.0,uReveal);
-        p += normalize(vec3(position.x,position.y,0.0)) * brk * 0.7;   // ring breaks outward
+        p += normalize(vec3(position.x,position.y,0.0)) * brk * 0.7;
         p += normalize(position) * sin(uTime*0.8 + aRand*6.2831)*0.012;
         vec4 mv = modelViewMatrix * vec4(p,1.0);
         gl_PointSize = uSize / -mv.z;
@@ -170,8 +146,7 @@ function start() {
         vAngle = aAngle;
       }`,
     fragmentShader: `
-      precision mediump float;
-      uniform vec3 uBlue,uOrange,uRed; uniform float uReveal,uOpacity;
+      precision mediump float; uniform vec3 uBlue,uOrange,uRed; uniform float uReveal,uOpacity;
       varying float vAngle;
       void main(){
         float a = smoothstep(0.5,0.0,length(gl_PointCoord-0.5));
@@ -191,27 +166,26 @@ function start() {
   const chainEl = document.querySelector('.scene-chain');
   const fieldEl = document.querySelector('.scene-field');
 
-  // Acts 1→2 crossfade + torus reveal, scrubbed across hero..chain.
   ScrollTrigger.create({
     trigger: heroEl, start: 'top top', endTrigger: chainEl, end: 'bottom bottom', scrub: true,
     onUpdate: (self) => {
-      const p = self.progress;                         // 0 at hero top → 1 at chain bottom
+      const p = self.progress;
       const cross = THREE.MathUtils.clamp((p - 0.34) / 0.16, 0, 1);
       gMat.uniforms.uOpacity.value = 1 - cross;
       tMat.uniforms.uOpacity.value = cross;
       g2.visible = cross > 0.001;
+      g1.visible = cross < 0.999;
       tMat.uniforms.uReveal.value = THREE.MathUtils.clamp((p - 0.5) / 0.48, 0, 1);
-      camera.position.z = 5.4 - cross * 1.9;           // ease inward toward the ring
+      camera.position.z = 3.8 - cross * 1.5;   // ease inward toward the ring
     },
   });
 
-  // Fade the whole canvas out as scene 3 (field) arrives; the CSS tints take over.
   ScrollTrigger.create({
     trigger: fieldEl, start: 'top bottom', end: 'top top', scrub: true,
     onUpdate: (self) => { canvas.style.opacity = String(1 - self.progress); },
   });
 
-  /* ---- Lenis smooth scroll (optional enhancement) --------------------- */
+  /* ---- Lenis smooth scroll (optional) --------------------------------- */
   (async () => {
     try {
       const { default: Lenis } = await import('lenis');
@@ -219,7 +193,7 @@ function start() {
       lenis.on('scroll', ScrollTrigger.update);
       const loop = (t) => { lenis.raf(t); requestAnimationFrame(loop); };
       requestAnimationFrame(loop);
-    } catch (e) { /* smooth scroll is a nice-to-have; native scroll is fine */ }
+    } catch (e) { /* native scroll is fine */ }
   })();
 
   /* ---- Render loop ----------------------------------------------------- */
@@ -228,10 +202,7 @@ function start() {
     const t = clock.getElapsedTime();
     gMat.uniforms.uTime.value = t;
     tMat.uniforms.uTime.value = t;
-    g1.rotation.y = t * 0.06;
-    arcMats.forEach(({ mat, offset }) => {
-      mat.uniforms.uHead.value = ((t * 0.28 + offset) % 1.6) - 0.2; // draw then fade, looping
-    });
+    g2.rotation.z = t * 0.04;
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
   }

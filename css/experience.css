@@ -117,6 +117,8 @@ body {
 .scene-network .scene-copy, .scene-funnel .scene-copy { text-align: center; }
 .scene-network .scene-copy.scrim::before,
 .scene-funnel  .scene-copy.scrim::before { background: radial-gradient(120% 120% at 50% 45%, rgba(4,12,20,.82), rgba(4,12,20,.45) 55%, transparent 78%); }
+/* Hero: keep the shell full-bleed — scrim only pools behind the copy on the left. */
+.scene-hero .scene-copy.scrim::before { inset: -8% -30% -8% -10%; background: radial-gradient(78% 92% at 20% 48%, rgba(4,12,20,.80), rgba(4,12,20,.34) 50%, transparent 70%); }
 
 /* --- Typography ---------------------------------------------------------- */
 .eyebrow {
