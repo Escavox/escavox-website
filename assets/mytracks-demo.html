@@ -13,10 +13,10 @@
   --text:#f5f8fa; --muted:#91a3b1; --cyan:#00A5E6; --blue:#00B9F1; --amber:#F4D67E; --red:#CF5547; --green:#5FD39A;
 }
 *{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:"PT Sans",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
+body{margin:0;overflow:hidden;background:
  radial-gradient(circle at 70% 20%,rgba(0,165,230,.08),transparent 29%),
  radial-gradient(circle at 18% 78%,rgba(0,185,241,.07),transparent 25%),var(--bg)}
-.stage{width:min(1380px,98vw);height:min(760px,94vh);min-height:620px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.035),rgba(255,255,255,.006));box-shadow:0 40px 120px rgba(0,0,0,.38)}
+.stage{width:1380px;height:760px;position:absolute;top:0;left:0;transform-origin:top left;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.035),rgba(255,255,255,.006));box-shadow:0 40px 120px rgba(0,0,0,.38)}
 .grid{position:absolute;inset:0;opacity:.24;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
 .topbar{position:absolute;left:34px;right:34px;top:26px;display:flex;align-items:center;justify-content:space-between;z-index:10}.brand{font-weight:700;letter-spacing:-.02em;font-size:19px}.brand span{color:var(--cyan)}
 .live{display:flex;align-items:center;gap:9px;color:#CCCCCC;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.liveDot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(0,165,230,.35);animation:pulse 2.8s infinite}@keyframes pulse{60%{box-shadow:0 0 0 9px rgba(0,165,230,0)}}
@@ -29,8 +29,14 @@ body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
 .metricBox{border-left:1px solid var(--line);padding-left:18px}.metricLabel{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#718996}.metric{font-size:40px;letter-spacing:-.04em;font-weight:700;margin:7px 0 2px}.metric span{font-size:18px;color:#E07A70}.metricSub{font-size:10px;color:#999999}.action{margin-top:12px;border:1px solid rgba(244,214,126,.3);background:rgba(244,214,126,.075);border-radius:11px;padding:10px 12px;opacity:0;transform:translateY(5px)}.actionLabel{font-size:8px;letter-spacing:.14em;color:var(--amber);text-transform:uppercase;margin-bottom:4px}.actionText{font-size:11px;font-weight:650}
 .footerLine{position:absolute;left:54px;bottom:35px;font-size:14px;color:#91a3b1;opacity:0}.footerLine strong{color:#f4f8fa;font-weight:650}.stageTag{position:absolute;right:50px;bottom:35px;color:#657d8b;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .replay{position:absolute;right:34px;top:67px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.035);color:#CCCCCC;border-radius:20px;padding:7px 11px;font-size:10px;cursor:pointer;z-index:11}.replay:hover{background:rgba(255,255,255,.065)}
-@media(max-height:760px) and (min-width:901px){.stage{height:96vh;min-height:580px}.dashboard{top:76px;height:490px}.headline{top:76px}.hardware{top:280px}.footerLine{bottom:20px}.stageTag{bottom:20px}}
-@media(max-width:900px){body{padding:0}.stage{width:100vw;height:100vh;min-height:760px;border-radius:0}.headline{left:26px;top:90px;width:calc(100% - 52px)}.headline h1{font-size:38px}.hardware{left:30px;top:250px}.dashboard{left:22px;right:22px;top:420px;width:auto;height:470px;transform-origin:center top}.stageTag,.footerLine{display:none}}
+/* fixed-size stage is scaled to fit the iframe (see fit()); no responsive reflow */
+.g6img{width:120px;height:auto;display:block;opacity:.82;transform:scale(.96);filter:drop-shadow(0 18px 34px rgba(0,0,0,.45))}
+.risk.watch{background:rgba(244,214,126,.12);color:var(--amber)}
+.dataflow{position:absolute;left:182px;top:430px;width:300px;height:150px;z-index:3;pointer-events:none}
+.dataflow span{position:absolute;left:0;top:118px;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);opacity:0;animation:flow 2.4s linear infinite}
+.dataflow span:nth-child(2){animation-delay:.8s}.dataflow span:nth-child(3){animation-delay:1.6s}
+@keyframes flow{0%{transform:translate(0,0);opacity:0}14%{opacity:1}86%{opacity:1}100%{transform:translate(288px,-130px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.dataflow span,.devicePulse,.devicePulse2{animation:none;opacity:0}}
 </style>
 </head>
 <body>
@@ -48,16 +54,15 @@ body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
   <div class="hardware" id="hardware">
     <div class="deviceWrap">
       <div class="devicePulse" id="pulse1"></div><div class="devicePulse2" id="pulse2"></div>
-      <div class="g6" id="g6">
-        <div class="g6Logo">Esca<span>vox</span></div><div class="g6Plus">G6+</div>
-        <div class="g6Id">67510F1E62</div><div class="g6Led"></div>
-      </div>
+      <img class="g6img" id="g6" src="img/devices/escavox-g6-plus.png" alt="Escavox G6+ device">
     </div>
     <div class="wave" id="wave"><i></i><i></i><i></i></div>
     <div class="packetPath" id="packetPath"></div>
     <div class="packet" id="packet"><b>67510F1E62</b> · 5.8°C · 89% RH</div>
     <div class="hardwareCaption">G6+ live shipment telemetry</div>
   </div>
+
+  <div class="dataflow"><span></span><span></span><span></span></div>
 
   <div class="dashboard" id="dashboard">
     <div class="dbHead"><div class="dbTitle">Active shipments<small>Commercial risk · worst first</small></div><div class="analysing" id="analysing"><span class="spinner"></span><span>Interpreting signals</span></div></div>
@@ -66,7 +71,7 @@ body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
       <div class="columnHeads"><span>#</span><span>Device ID</span><span>Container ID</span><span>Destination</span><span>Produce</span><span>ETA</span><span>Risk rating</span></div><div class="shipments">
         <div class="row r1" id="row1"><div class="rank">01</div><div class="route">67510F2A9C</div><div class="route">MSCU4839217</div><div class="route">Rotterdam</div><div class="route">Grapes</div><div class="eta">8d 4h</div><div class="risk">Low</div></div>
         <div class="row r2" id="row2"><div class="rank">02</div><div class="route">67510F7B31</div><div class="route">MRKU6127843</div><div class="route">London</div><div class="route">Blueberries</div><div class="eta">3d 7h</div><div class="risk">Low</div></div>
-        <div class="row r3" id="row3"><div class="rank">03</div><div class="route">67510FC84D</div><div class="route">TCLU8291046</div><div class="route">Dubai</div><div class="route">Citrus</div><div class="eta">1d 2h</div><div class="risk">Watch</div></div>
+        <div class="row r3" id="row3"><div class="rank">03</div><div class="route">67510FC84D</div><div class="route">TCLU8291046</div><div class="route">Dubai</div><div class="route">Citrus</div><div class="eta">1d 2h</div><div class="risk watch">Watch</div></div>
         <div class="row r4" id="row4"><div class="rank">04</div><div class="route">67510F1E62</div><div class="route">CMAU7415820</div><div class="route">Amsterdam</div><div class="route">Grapes</div><div class="eta">5d 1h</div><div class="risk">Low</div></div>
       </div>
       <div class="detail" id="detail">
@@ -99,6 +104,8 @@ body{display:grid;place-items:center;padding:14px;overflow-x:hidden;background:
 </div>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function fit(){var s=window.innerWidth/1380;var st=document.getElementById('stage');if(st){st.style.transform='scale('+s+')';document.body.style.height=(760*s)+'px';}}
+fit(); addEventListener('resize', fit);
 let timers=[]; const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
 function reset(){timers.forEach(clearTimeout);timers=[];
   ['#pulse1','#pulse2','#wave','#packetPath','#packet'].forEach(sel=>{let x=$(sel);x.style.cssText=''});
