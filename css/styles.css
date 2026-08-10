@@ -1,7 +1,7 @@
 /* =====================================================================
    ESCAVOX — Cold Chain Intelligence
    Design system + components. Self-contained static site.
-   Brand: deep blue #037EB0 · bright blue #2EA3F2 · orange #EF8133
+   Brand: deep blue #037EB0 · bright blue #2EA3F2 · orange #EF8131
    ===================================================================== */
 
 /* ---------- Reset ---------- */
@@ -31,13 +31,13 @@ ul { list-style: none; padding: 0; }
   --blue-100: #E4F2FC;
   --blue-50:  #F1F8FD;
 
-  --orange: #EF8133;     /* accent / CTA */
+  --orange: #EF8131;     /* accent / CTA */
   --orange-dark: #D96E1F;
 
   /* Ink / neutrals */
   --ink-900: #0B2432;    /* headings */
   --ink-700: #274050;    /* body strong */
-  --ink-500: #566B78;    /* body muted */
+  --ink-500: #666666;    /* body muted */
   --ink-400: #7C8B95;
   --line: #E3EBF0;       /* borders */
   --line-soft: #EEF3F6;
@@ -52,9 +52,9 @@ ul { list-style: none; padding: 0; }
   --success: #1BA36B;
   --focus: #2EA3F2;
 
-  /* Type — matches the original Escavox site (PT Sans headings, Open Sans body) */
+  /* Type — PT Sans throughout (Escavox brand) */
   --font-head: "PT Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-body: "PT Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 
   /* Radius / shadow */
   --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
@@ -76,7 +76,7 @@ body {
   font-size: 17px;
   overflow-x: hidden;
 }
-h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink-900); line-height: 1.12; letter-spacing: -.02em; font-weight: 800; }
+h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink-900); line-height: 1.12; letter-spacing: -.02em; font-weight: 700; }
 h1 { font-size: clamp(2.35rem, 5.2vw, 4rem); }
 h2 { font-size: clamp(1.8rem, 3.6vw, 2.75rem); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 700; }
@@ -185,7 +185,7 @@ section { position: relative; }
 .hero-trust { margin-top: 40px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .hero-trust .label { font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-400); }
 .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; }
-.hero-stats .stat .num { font-family: var(--font-head); font-weight: 800; font-size: 1.7rem; color: var(--ink-900); letter-spacing: -.02em; }
+.hero-stats .stat .num { font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; color: var(--ink-900); letter-spacing: -.02em; }
 .hero-stats .stat .lbl { font-size: .82rem; color: var(--ink-500); }
 
 /* Hero: headline + wide subhead across the top; CTAs + KPIs left, globe right */
@@ -218,7 +218,7 @@ section { position: relative; }
 }
 .metric .m-ico { color: var(--blue-600); }
 .metric .m-ico svg { width: 20px; height: 20px; }
-.metric .m-val { font-family: var(--font-head); font-weight: 800; font-size: 1.32rem; color: var(--ink-900); margin-top: 8px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.metric .m-val { font-family: var(--font-head); font-weight: 700; font-size: 1.32rem; color: var(--ink-900); margin-top: 8px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .metric .m-lbl { font-size: .74rem; color: var(--ink-500); }
 .tracker-float {
   position: absolute; z-index: 4; background: #fff; border: 1px solid var(--line); border-radius: var(--r-md);
@@ -242,7 +242,7 @@ section { position: relative; }
 .logos { border-block: 1px solid var(--line-soft); background: #fff; }
 .logos .wrap { display: flex; align-items: center; gap: 18px; padding-block: 30px; flex-wrap: wrap; justify-content: center; }
 .logos .cap { font-size: .82rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-400); width: 100%; text-align: center; margin-bottom: 4px; }
-.logos .name { font-family: var(--font-head); font-weight: 800; color: var(--ink-400); font-size: 1.15rem; letter-spacing: .01em; opacity: .8; }
+.logos .name { font-family: var(--font-head); font-weight: 700; color: var(--ink-400); font-size: 1.15rem; letter-spacing: .01em; opacity: .8; }
 
 /* ---------- Client / partner logo wall ---------- */
 .clients { background: #fff; }
@@ -315,13 +315,13 @@ section { position: relative; }
 .engine-step.is-intel { background: linear-gradient(120deg, rgba(3,126,176,.4), rgba(46,163,242,.24)); border-color: var(--blue-500); box-shadow: 0 10px 34px rgba(3,126,176,.25); }
 .engine-step.is-intel .es-ico { background: rgba(46,163,242,.28); color: #fff; }
 .engine-step.is-outcome { background: rgba(239,129,51,.14); border-color: rgba(239,129,51,.55); }
-.engine-step.is-outcome .es-ico { background: rgba(239,129,51,.2); color: #F6B27E; }
+.engine-step.is-outcome .es-ico { background: rgba(239,129,51,.2); color: #F7B77D; }
 .engine-arrow { display: grid; place-items: center; height: 24px; color: var(--blue-300); opacity: .6; }
 .engine-arrow svg { width: 22px; height: 22px; }
 
 /* ---------- Big statement (philosophy) ---------- */
 .statement { max-width: 900px; margin-inline: auto; text-align: center; }
-.statement p { font-family: var(--font-head); font-weight: 800; letter-spacing: -.02em; line-height: 1.18; font-size: clamp(1.5rem, 3.4vw, 2.5rem); color: var(--ink-900); }
+.statement p { font-family: var(--font-head); font-weight: 700; letter-spacing: -.02em; line-height: 1.18; font-size: clamp(1.5rem, 3.4vw, 2.5rem); color: var(--ink-900); }
 .dark .statement p { color: #fff; }
 .statement p .muted { color: var(--ink-400); }
 .dark .statement p .muted { color: #6f8ea0; }
@@ -381,7 +381,7 @@ section { position: relative; }
 @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
 .step { position: relative; padding-top: 8px; }
-.step .n { counter-increment: step; font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; color: #fff; width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(140deg, var(--blue-500), var(--blue-600)); display: grid; place-items: center; margin-bottom: 16px; box-shadow: var(--shadow-blue); }
+.step .n { counter-increment: step; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: #fff; width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(140deg, var(--blue-500), var(--blue-600)); display: grid; place-items: center; margin-bottom: 16px; box-shadow: var(--shadow-blue); }
 .step .n::before { content: "0" counter(step); }
 .step h3 { font-size: 1.12rem; margin-bottom: 6px; }
 .step p { font-size: .94rem; }
@@ -397,7 +397,7 @@ section { position: relative; }
 /* ---------- Stat band ---------- */
 .stat-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 @media (max-width: 780px) { .stat-band { grid-template-columns: repeat(2, 1fr); } }
-.stat-item .big { font-family: var(--font-head); font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.1rem); letter-spacing: -.03em; line-height: 1; background: linear-gradient(120deg,#fff,var(--blue-300)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-item .big { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.2rem, 4vw, 3.1rem); letter-spacing: -.03em; line-height: 1; background: linear-gradient(120deg,#fff,var(--blue-300)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .stat-item .cap { margin-top: 10px; font-size: .96rem; color: #a9c2d1; }
 
 /* ---------- Device page ---------- */
@@ -447,7 +447,7 @@ section { position: relative; }
 .cmp-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); -webkit-overflow-scrolling: touch; }
 .cmp { width: 100%; border-collapse: collapse; min-width: 560px; }
 .cmp th, .cmp td { padding: 15px 22px; text-align: left; border-bottom: 1px solid var(--line-soft); font-size: .98rem; vertical-align: top; }
-.cmp thead th { font-family: var(--font-head); font-weight: 800; color: var(--ink-900); background: var(--bg-tint); font-size: 1.05rem; }
+.cmp thead th { font-family: var(--font-head); font-weight: 700; color: var(--ink-900); background: var(--bg-tint); font-size: 1.05rem; }
 .cmp thead th .mdl { display: block; font-size: .78rem; font-weight: 600; color: var(--ink-400); }
 .cmp th[scope="row"] { font-family: var(--font-head); font-weight: 600; color: var(--ink-700); white-space: nowrap; }
 .cmp td { color: var(--ink-500); }
@@ -475,7 +475,7 @@ section { position: relative; }
 .person:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--blue-100); }
 .person .photo { aspect-ratio: 1 / 1; background: linear-gradient(160deg, var(--blue-100), var(--blue-50)); position: relative; overflow: hidden; }
 .person .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.person .photo .initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 2.6rem; color: var(--blue-600); }
+.person .photo .initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 2.6rem; color: var(--blue-600); }
 .person .body { padding: 20px 22px 24px; }
 .person .role { font-family: var(--font-head); font-weight: 700; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); }
 .person h3 { margin: 6px 0 0; font-size: 1.28rem; }
@@ -489,7 +489,7 @@ section { position: relative; }
 @media (max-width: 760px){ .feat-person { grid-template-columns: 1fr; text-align: left; } }
 .feat-person .photo { aspect-ratio: 4/5; border-radius: var(--r-lg); overflow: hidden; background: linear-gradient(160deg, var(--blue-100), var(--blue-50)); position: relative; box-shadow: var(--shadow-md); }
 .feat-person .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.feat-person .photo .initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 4rem; color: var(--blue-600); }
+.feat-person .photo .initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 4rem; color: var(--blue-600); }
 .feat-person .flag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-head); font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue-600); }
 
 /* ---------- Office cards ---------- */
