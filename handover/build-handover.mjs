@@ -50,8 +50,10 @@ function rewriteLinks(html) {
   });
 }
 function rewriteAssets(html) {
-  // assets/... (src or href, single or double quote) -> WordPress uploads URL
-  return html.replace(/(src|href)=("|')assets\//g, `$1=$2${ASSET_BASE}/`);
+  // assets/... -> WordPress uploads URL, in src/href attributes AND inline CSS url()
+  return html
+    .replace(/(src|href)=("|')assets\//g, `$1=$2${ASSET_BASE}/`)
+    .replace(/url\((["']?)assets\//g, `url($1${ASSET_BASE}/`);
 }
 
 const seo = [];
