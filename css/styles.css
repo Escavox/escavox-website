@@ -147,9 +147,9 @@ section { position: relative; }
 .nav-menu a.active { color: var(--blue-600); }
 .nav-menu > .btn { display: none; } /* CTA lives in nav-actions; only appears in mobile dropdown */
 .nav-actions { display: flex; align-items: center; gap: 12px; }
-.nav-login { font-family: var(--font-head); font-weight: 600; font-size: .95rem; color: var(--ink-700); padding: 8px 4px; }
-.nav-login:hover { color: var(--blue-600); }
-.nav-tracker { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--blue-600); padding: 8px 4px; white-space: nowrap; }
+.nav-login { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--orange); padding: 8px 4px; }
+.nav-login:hover { color: var(--orange-dark); }
+.nav-tracker { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--blue-600); padding: 8px 4px 8px 16px; margin-left: 4px; border-left: 1px solid var(--line); white-space: nowrap; }
 .nav-tracker:hover { color: var(--blue-500); }
 .nav-menu .nav-extra { display: none; }
 .nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: var(--r-sm); color: var(--ink-900); }
