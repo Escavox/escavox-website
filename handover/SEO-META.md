@@ -12,3 +12,4 @@ Set in the WP page editor (or your SEO plugin, e.g. Yoast/RankMath) for each pag
 | news | `/news/` | News &amp; Media — Escavox | Escavox in the news and media — trade and mainstream press, radio, television and podcasts providing authoritative insight on global fresh food supply chains. |
 | faq | `/faq/` | FAQ — Escavox | Frequently asked questions about Escavox devices, the My Tracks™ platform, data and how to get started. |
 | contact | `/contact/` | Contact Us — Escavox | Talk with the Escavox team about real-time cold chain visibility. Offices in Sydney, Australia and Cape Town, South Africa. |
+| app | `/the-escavox-app/` | The Escavox App — Sign in, scan a tracker, get alerts | Download the Escavox app to sign in to My Tracks™, scan a device, link orders and photos, and get shipment alerts pushed straight to your phone. |

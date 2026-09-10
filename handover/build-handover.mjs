@@ -28,10 +28,11 @@ const SLUGS = {
   'news':           '/news/',
   'faq':            '/faq/',
   'contact':        '/contact/',
+  'app':            '/the-escavox-app/',
   'experience':     '/experience/',
 };
 // Pages delivered as Code Modules (experience.html is WebGL/ESM — handled separately).
-const PAGES = ['index','platform','devices','sustainability','people','news','faq','contact'];
+const PAGES = ['index','platform','devices','sustainability','people','news','faq','contact','app'];
 
 const FONTS = '<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">';
 
