@@ -574,7 +574,7 @@ section { position: relative; }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; padding-bottom: 44px; align-items: start; }
 @media (max-width: 720px){ .footer-top { grid-template-columns: 1fr; gap: 34px; } }
 .footer-logo { height: clamp(38px, 4vw, 48px); width: auto; display: block; }
-.footer-tagline { margin: 13px 0 0; text-transform: uppercase; letter-spacing: .2em; font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.82); }
+.footer-tagline { margin: 13px 0 0; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.82); width: calc(clamp(38px, 4vw, 48px) * 4.363); text-align: justify; text-align-last: justify; }
 .footer-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; background: var(--orange); color: #fff; font-weight: 700; padding: 12px 26px; border-radius: 999px; box-shadow: 0 8px 20px rgba(239,129,51,.28); transition: background .18s ease, transform .18s ease, box-shadow .18s ease; }
 .footer-cta svg { width: 18px; height: 18px; }
 .footer-cta:hover { background: var(--orange-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(239,129,51,.34); }
