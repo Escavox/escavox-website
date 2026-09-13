@@ -1,0 +1,55 @@
+# ==========================================================================
+# Escavox static site — redirects, canonical host & error handling
+# Drop this in the site root (public_html). SiteGround runs Apache, so
+# mod_rewrite is available. HTTPS is enforced separately in
+# Site Tools -> Security -> HTTPS Enforce (leave that ON).
+# ==========================================================================
+
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ---- Canonical host: send apex -> www (comment out for non-www) --------
+  RewriteCond %{HTTP_HOST} ^escavox\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.escavox.com/%{REQUEST_URI} [R=301,L,NE]
+
+  # ---- Preserved news articles: old WP URL -> new page -------------------
+  RewriteRule ^news/track-and-trace-delivers-for-pinata/?$ /track-and-trace-delivers-for-pinata.html [R=301,L]
+  RewriteRule ^news/escavox-launches-world-first-tech-for-red-meat-suppliers/?$ /escavox-launches-world-first-tech-for-red-meat-suppliers.html [R=301,L]
+  RewriteRule ^news/why-escavox-could-spell-the-end-of-the-best-before-system-as-we-know-it/?$ /why-escavox-could-spell-the-end-of-the-best-before-system-as-we-know-it.html [R=301,L]
+  RewriteRule ^news/how-real-time-data-is-revealing-the-secret-life-of-food/?$ /how-real-time-data-is-revealing-the-secret-life-of-food.html [R=301,L]
+  RewriteRule ^news/escavox-helps-keep-global-shipping-open/?$ /escavox-helps-keep-global-shipping-open.html [R=301,L]
+  RewriteRule ^news/escavox-customers-lace-up-for-charity-walk/?$ /escavox-customers-lace-up-for-charity-walk.html [R=301,L]
+
+  # ---- Renamed / consolidated pages --------------------------------------
+  RewriteRule ^our-people/?$        /people.html         [R=301,L]
+  RewriteRule ^contact-us/?$        /contact.html        [R=301,L]
+  RewriteRule ^privacy-policy/?$    /privacy.html        [R=301,L]
+  RewriteRule ^media/?$             /news.html           [R=301,L]
+  RewriteRule ^our-service/?$       /platform.html       [R=301,L]
+  RewriteRule ^our-difference/?$    /platform.html       [R=301,L]
+  RewriteRule ^the-escavox-app/?$   /app.html            [R=301,L]
+  RewriteRule ^faq/?$               /faq.html            [R=301,L]
+  RewriteRule ^sustainability/?$    /sustainability.html [R=301,L]
+  RewriteRule ^reports/?$           /reports.html        [R=301,L]
+
+  # ---- Data Centre "Got a tracker?" -> scan web app ----------------------
+  RewriteRule ^got-a-tracker/?$ https://escavoxwebapi.azurewebsites.net/scandevice [R=301,L]
+
+  # ---- Any other old news post / category / tag -> news landing ----------
+  RewriteRule ^news(/.*)?$ /news.html [R=301,L]
+
+</IfModule>
+
+# ---- Long-cache static assets (safe: filenames change when edited) -------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
