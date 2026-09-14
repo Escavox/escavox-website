@@ -464,8 +464,8 @@ section { position: relative; }
 
 /* comparison table */
 .cmp-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); -webkit-overflow-scrolling: touch; }
-.cmp { width: 100%; border-collapse: collapse; min-width: 560px; }
-.cmp th, .cmp td { padding: 15px 22px; text-align: left; border-bottom: 1px solid var(--line-soft); font-size: .98rem; vertical-align: top; }
+.cmp { width: 100%; border-collapse: collapse; min-width: 560px; table-layout: fixed; }
+.cmp th, .cmp td { width: 50%; padding: 15px 22px; text-align: left; border-bottom: 1px solid var(--line-soft); font-size: .98rem; vertical-align: top; }
 .cmp thead th { font-family: var(--font-head); font-weight: 700; color: var(--ink-900); background: var(--bg-tint); font-size: 1.05rem; }
 .cmp thead th .mdl { display: block; font-size: .78rem; font-weight: 600; color: var(--ink-400); }
 .cmp th[scope="row"] { font-family: var(--font-head); font-weight: 600; color: var(--ink-700); white-space: nowrap; }
