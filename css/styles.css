@@ -505,6 +505,27 @@ section { position: relative; }
 .story-name-block .story-name { justify-content: flex-start; margin-top: 0; }
 .story-name-tag { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.15rem,2vw,1.45rem); color: var(--ink-900); margin-top: 10px; }
 
+/* Our Story — the loss-gap impact band */
+.gap-band { margin: clamp(36px,5vw,60px) 0 0; padding: clamp(28px,4vw,50px); background: linear-gradient(160deg, var(--blue-50), #fff); border: 1px solid var(--blue-100); border-radius: var(--r-xl); box-shadow: var(--shadow-md); }
+.gap-band-head { text-align: center; max-width: 660px; margin: 0 auto clamp(26px,3.5vw,40px); }
+.gap-band-head h3 { font-size: clamp(1.5rem,3.2vw,2.1rem); margin-top: 8px; }
+.gap-band-head p { color: var(--ink-500); margin-top: 12px; }
+.gap-bars { display: grid; gap: clamp(20px,3vw,30px); max-width: 860px; margin: 0 auto; }
+.gap-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 16px; margin-bottom: 10px; flex-wrap: wrap; }
+.gap-name { font-family: var(--font-head); font-weight: 700; font-size: clamp(1rem,1.6vw,1.15rem); color: var(--ink-900); }
+.gap-num { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem,4vw,2.6rem); line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+.gap-num.good { color: var(--success); }
+.gap-num.bad { color: #CF5547; }
+.gap-track { height: 20px; border-radius: 999px; background: #E7EEF3; overflow: hidden; }
+.gap-fill { display: block; height: 100%; border-radius: 999px; transition: width .9s cubic-bezier(.2,.7,.2,1); }
+.gap-fill.good { background: var(--success); }
+.gap-fill.bad { background: #CF5547; }
+.gap-sub { margin-top: 9px; color: var(--ink-500); font-size: .9rem; }
+.gap-note { text-align: center; max-width: 700px; margin: clamp(26px,3.5vw,38px) auto 0; color: var(--ink-700); font-size: 1.06rem; line-height: 1.6; }
+.story-close { text-align: center; max-width: 760px; margin: clamp(32px,4.5vw,52px) auto 0; }
+.story-close .story-name { justify-content: center; }
+.story-close .story-name-tag { text-align: center; }
+
 /* FAQ device-picker table */
 .spec-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); margin: 4px 0 8px; -webkit-overflow-scrolling: touch; }
 .spec-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: .95rem; }
