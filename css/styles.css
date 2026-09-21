@@ -537,10 +537,6 @@ section { position: relative; }
 .spec-table td:first-child, .spec-table th:first-child { font-weight: 700; color: var(--ink-900); white-space: nowrap; }
 .spec-table tbody tr:last-child td { border-bottom: 0; }
 
-/* Video news card — play badge */
-.news-card--video { position: relative; }
-.news-card--video::after { content: ""; position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%; background-color: var(--orange); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 55% center; background-size: 15px; box-shadow: 0 6px 16px rgba(242,129,30,.32); }
-
 /* Global reach */
 .reach-map { margin: clamp(28px, 4vw, 44px) 0 0; border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
 .reach-map img { display: block; width: 100%; height: auto; }
