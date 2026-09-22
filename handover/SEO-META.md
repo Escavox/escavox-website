@@ -13,6 +13,6 @@ Set in the WP page editor (or your SEO plugin, e.g. Yoast/RankMath) for each pag
 | faq | `/faq/` | FAQ | Escavox | Frequently asked questions about Escavox devices, the My Tracks™ platform, data and how to get started. |
 | contact | `/contact/` | Contact Us | Escavox | Talk with the Escavox team about real-time cold chain visibility. Offices in Sydney, Australia and Cape Town, South Africa. |
 | app | `/the-escavox-app/` | The Escavox App | Sign in, scan a tracker, get alerts | Download the Escavox app to sign in to My Tracks™, scan a device, link orders and photos, and get shipment alerts pushed straight to your phone. |
-| privacy | `/privacy/` | Privacy Policy | Escavox | How Escavox collects, uses and protects personal information submitted through the Escavox website. |
+| privacy | `/privacy/` | Privacy Policy | Escavox | Escavox Pty Ltd privacy policy — how we collect, hold, use and protect your personal information under Australian privacy law. |
 | terms | `/terms/` | Terms &amp; Conditions | Escavox | The terms that govern your use of the Escavox website. |
 | cookie-policy | `/cookie-policy/` | Cookie Policy | Escavox | How the Escavox website uses cookies, and why no cookie-consent banner is required. |
