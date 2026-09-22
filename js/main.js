@@ -59,12 +59,20 @@
   var counters = document.querySelectorAll("[data-count]");
   counters.forEach(function (el) {
     var target = parseFloat(el.getAttribute("data-count"));
+    var start = el.getAttribute("data-count-start") ? parseFloat(el.getAttribute("data-count-start")) : 0;
     var suffix = el.getAttribute("data-suffix") || "";
     var decimals = el.getAttribute("data-decimals") ? parseInt(el.getAttribute("data-decimals"), 10) : 0;
-    var render = function (v) { el.textContent = v.toFixed(decimals) + suffix; };
+    var format = el.getAttribute("data-format");
+    var compact = function (v) {
+      if (v >= 1e6) { var m = v / 1e6; return (m % 1 === 0 ? m.toFixed(0) : m.toFixed(1)) + "M+"; }
+      return Math.round(v / 1e3) + "k";
+    };
+    var render = format === "compact"
+      ? function (v) { el.textContent = compact(v); }
+      : function (v) { el.textContent = v.toFixed(decimals) + suffix; };
     if (canAnimate) {
       M.inView(el, function () {
-        M.animate(0, target, {
+        M.animate(start, target, {
           duration: 1.4,
           ease: [0.22, 0.7, 0.3, 1],
           onUpdate: render,
