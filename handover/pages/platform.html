@@ -1,8 +1,8 @@
 <!-- ====================================================================
-     ESCAVOX — platform.html  ·  paste into ONE Divi "Code" module
+     ESCAVOX · platform.html  ·  paste into ONE Divi "Code" module
      Page template: Blank Page (Divi) so the theme header/footer is off.
      Shared CSS/JS + images expected at: https://www.escavox.com/wp-content/uploads/escavox-site/
-     Built by handover/build-handover.mjs — edit the source, not this file.
+     Built by handover/build-handover.mjs · edit the source, not this file.
      ==================================================================== -->
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.escavox.com/wp-content/uploads/escavox-site/css/styles.css">
@@ -14,19 +14,21 @@
   <div class="container nav">
     <a href="/" class="nav-logo" aria-label="Escavox home"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox"></a>
     <nav class="nav-menu" aria-label="Primary">
-      <a href="/platform/" class="active">My Tracks™ Platform</a>
+      <a href="/">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="/platform/" class="active">Platform</a>
       <a href="/devices/">Devices</a>
       <a href="/sustainability/">Sustainability</a>
       <a href="/people/">People</a>
       <a href="/news/">News</a>
       <a href="/faq/">FAQ</a>
       <a href="/the-escavox-app/" class="nav-extra">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-extra">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-extra">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </nav>
     <div class="nav-actions">
       <a href="/the-escavox-app/" class="nav-login">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-tracker">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-tracker">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -39,7 +41,7 @@
     <p class="crumb"><a href="/">Home</a> / Platform</p>
     <span class="eyebrow" style="margin-top:14px">The platform · MyTracks™</span>
     <h1>Decisions, not dashboards.</h1>
-    <p class="lead">MyTracks™ is where Cold Chain Intelligence lives. It ranks shipments by commercial risk, pinpoints where shelf life is lost, and tells you what to do next — before the produce arrives.</p>
+    <p class="lead">MyTracks™ is where Cold Chain Intelligence lives. It ranks shipments by commercial risk, pinpoints where shelf life is lost, and tells you what to do next, before the produce arrives.</p>
     <div class="hero-cta" style="margin-top:28px"><a href="/contact/" class="btn btn-primary btn-lg">See the intelligence</a><a href="/devices/" class="btn btn-ghost btn-lg">The data layer</a></div>
   </div>
 </section>
@@ -50,16 +52,15 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">Inside the platform</span>
       <h2>Your Control Center.</h2>
-      <p class="lead mt-s">Every live shipment on one screen — mapped, scored and ranked by commercial risk, with the weak link and shelf-life impact already worked out.</p>
+      <p class="lead mt-s">Every live shipment on one screen, mapped, scored and ranked by commercial risk, with the weak link and shelf-life impact already worked out.</p>
     </div>
-    <figure class="app-frame reveal d1" style="margin-bottom:0">
-      <div class="app-frame-bar"><i></i><i></i><i></i><span class="app-frame-url">app.escavox.com · Control Center</span></div>
-      <img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/control-centre.png" alt="Escavox Control Center — live shipments on a world map, a temperature and humidity profile, and a risk-ranked tracks table with VOP quality scores" loading="lazy">
+    <figure class="app-frame app-frame--bare reveal d1" style="margin-bottom:0">
+      <img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/control-centre.jpg" alt="Escavox Control Center, live shipments on a world map, a temperature and humidity profile, and a risk-ranked tracks table with VOP quality scores" loading="lazy">
     </figure>
     <ul class="app-callouts reveal d2">
       <li><b>Ranked by commercial risk</b>Worst-first, so your team works the shipments that actually matter.</li>
       <li><b>A VOP score per load</b>One number for how much shelf life arrives at destination.</li>
-      <li><b>Live map, every mode</b>Road, air, sea and rail — origin to destination, in one view.</li>
+      <li><b>Live map, every mode</b>Road, air, sea and rail, origin to destination, in one view.</li>
       <li><b>The weak link, flagged</b>Chill, heat and quality risk pinpointed before the produce lands.</li>
     </ul>
   </div>
@@ -67,40 +68,32 @@
 
 <!-- EVERY VIEW ANSWERS A DECISION -->
 <section class="section" style="padding-top:clamp(24px,3vw,44px)">
-  <div class="container split">
-    <div class="split-copy reveal">
-      <span class="eyebrow">Built for decisions</span>
-      <h2 class="mt-s">Every view answers a decision.</h2>
-      <p class="lead mt-s">Not "what does this data show?" — but "what do I do now?" MyTracks™ turns the whole journey into a single, ranked view of where value is at risk, so you act on the shipments that matter.</p>
-      <ul class="feature-list">
-        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft">See risk, not readings</div><div class="fd">Shipments ranked by commercial risk, worst-first.</div></div></li>
-        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft">Know the weak link</div><div class="fd">The exact leg, facility or hand-off eroding shelf life.</div></div></li>
-        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft">Act while it counts</div><div class="fd">Prioritise, divert, accept or reject — with confidence.</div></div></li>
-      </ul>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">Built for decisions</span>
+      <h2>Every view answers a decision.</h2>
+      <p class="lead mt-s">Not "what does this data show?", but "what do I do now?" Open any track and MyTracks™ shows exactly where shelf life is lost, stage by stage, so you act on the shipments that matter.</p>
     </div>
-    <div class="split-media reveal d2">
-      <div class="tracker-card" style="box-shadow:var(--shadow-lg)">
-        <div class="tracker-top"><div class="route">Shelf-life outlook</div><span class="live-tag"><span class="dot"></span> Predicted</span></div>
-        <div class="map-frame" style="background:linear-gradient(160deg,#F1F8FD,#E4F2FC);padding:18px">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Predicted shelf-life trend">
-            <g stroke="#CFE7F7" stroke-width="1"><path d="M0 45h400M0 90h400M0 135h400"/></g>
-            <polyline points="10,140 70,120 130,124 190,96 250,70 310,58 390,30" fill="none" stroke="#037EB0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="10,140 70,120 130,124 190,96 250,70 310,58 390,30 390,180 10,180" fill="#037EB0" opacity=".08"/>
-            <circle cx="250" cy="70" r="6" fill="#EF8131"/><circle cx="250" cy="70" r="12" fill="#EF8131" opacity=".2"/>
-          </svg>
-        </div>
-        <div class="metric-row">
-          <div class="metric"><div class="m-val">+2.4d</div><div class="m-lbl">Shelf life protected</div></div>
-          <div class="metric"><div class="m-val">Port</div><div class="m-lbl">Weak link</div></div>
-          <div class="metric"><div class="m-val">Act now</div><div class="m-lbl">Recommended</div></div>
-        </div>
-      </div>
-    </div>
+    <figure class="app-frame app-frame--bare reveal d1" style="margin-bottom:0">
+      <img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/shelf-life-curve.jpg" alt="Escavox Single Track view, a shelf-life curve broken down by supply-chain stage, the journey mapped from farm to retailer, and per-stage temperature and dwell details" loading="lazy">
+    </figure>
+    <ul class="app-callouts reveal d2">
+      <li><b>See risk, not readings</b>Shipments ranked by commercial risk, worst-first.</li>
+      <li><b>Know the weak link</b>The exact leg, facility or hand-off eroding shelf life.</li>
+      <li><b>Act while it counts</b>Prioritise, divert, accept or reject, with confidence.</li>
+    </ul>
   </div>
 </section>
 
 <!-- ANALYTICS / INTELLIGENCE -->
-<section class="section" style="background:var(--bg-tint);border-block:1px solid var(--line-soft)">
+<section class="section analytics" style="background:var(--bg-tint);border-block:1px solid var(--line-soft)">
+  <div class="analytics-wall" aria-hidden="true">
+    <img class="w1" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/control-centre.jpg" alt="" loading="lazy">
+    <img class="w2" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/shelf-life-curve.jpg" alt="" loading="lazy">
+    <img class="w3" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/shelf-life-curve.jpg" alt="" loading="lazy">
+    <img class="w4" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/control-centre.jpg" alt="" loading="lazy">
+    <img class="w5" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/control-centre.jpg" alt="" loading="lazy">
+  </div>
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow center">The intelligence</span>
@@ -109,7 +102,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M12 8a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4ZM9 22h6"/></svg></div><h3>Shelf-life prediction</h3><p>How much life a shipment gained or lost, modelled per commodity.</p></div>
-      <div class="card hover reveal d1"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Risk ranking</h3><p>Shipments prioritised by commercial risk — worst-first, every day.</p></div>
+      <div class="card hover reveal d1"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Risk ranking</h3><p>Shipments prioritised by commercial risk, worst-first, every day.</p></div>
       <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Weak-link analysis</h3><p>The exact leg, facility or hand-off where quality is eroded.</p></div>
       <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.7 12 2.7Z"/></svg></div><h3>Condensation &amp; moisture risk</h3><p>Where produce is sweating, drying or at risk of chill injury.</p></div>
       <div class="card hover reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h6"/></svg></div><h3>Benchmarking</h3><p>Compare routes, seasons and suppliers on the metric that matters: quality out.</p></div>
@@ -129,22 +122,22 @@
     <div class="steps">
       <div class="step reveal"><div class="n"></div><h3>Capture</h3><p>An always-on device travels with your consignment, listening to its full condition.</p></div>
       <div class="step reveal d1"><div class="n"></div><h3>Model</h3><p>Environmental science and physics turn raw signals into shelf-life and risk.</p></div>
-      <div class="step reveal d2"><div class="n"></div><h3>Rank</h3><p>MyTracks™ surfaces the shipments that need you — ordered by commercial risk.</p></div>
-      <div class="step reveal d3"><div class="n"></div><h3>Act</h3><p>Prioritise, divert or defend quality — and share the evidence with partners.</p></div>
+      <div class="step reveal d2"><div class="n"></div><h3>Rank</h3><p>MyTracks™ surfaces the shipments that need you, ordered by commercial risk.</p></div>
+      <div class="step reveal d3"><div class="n"></div><h3>Act</h3><p>Prioritise, divert or defend quality, and share the evidence with partners.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MYTRACKS LIVE DEMO — animated signal → decision -->
+<!-- MYTRACKS LIVE DEMO, animated signal → decision -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow center">See it work</span>
-      <h2>Watch a signal become a decision.</h2>
-      <p class="lead mt-s">A live G6+ shipment, interpreted by MyTracks™ in real time — re-ranked by commercial risk, the weak link identified, shelf-life quantified, an action recommended.</p>
+      <span class="eyebrow center">The Control Center, live</span>
+      <h2>See the Control Center at work.</h2>
+      <p class="lead mt-s">Live shipments flowing into your Control Center, re-ranked by commercial risk worst-first, the weak link identified and shelf-life impact quantified, so your team always knows which load to work next.</p>
     </div>
     <div class="reveal d1" style="max-width:1100px;margin-inline:auto">
-      <iframe id="mt-demo" src="https://www.escavox.com/wp-content/uploads/escavox-site/mytracks-demo.html" title="MyTracks: from signal to decision — animated demonstration" loading="lazy" scrolling="no"
+      <iframe id="mt-demo" src="https://www.escavox.com/wp-content/uploads/escavox-site/mytracks-demo.html" title="MyTracks: from signal to decision, animated demonstration" loading="lazy" scrolling="no"
         style="width:100%;aspect-ratio:1380/760;border:0;border-radius:20px;display:block;background:#07131c;box-shadow:var(--shadow-md)"></iframe>
     </div>
   </div>
@@ -161,7 +154,7 @@
     <div class="reveal">
       <span class="eyebrow">Network-level intelligence</span>
       <h2 class="mt-s">One source of truth, shared.</h2>
-      <p class="lead mt-s" style="color:#a9c2d1">Individual shipments combine to reveal performance, risk and quality across your whole network — and independent, verifiable intelligence gives every partner one version of the truth to act on.</p>
+      <p class="lead mt-s" style="color:#a9c2d1">Individual shipments combine to reveal performance, risk and quality across your whole network, and independent, verifiable intelligence gives every partner one version of the truth to act on.</p>
       <ul class="feature-list">
         <li><span class="fi" style="background:rgba(46,163,242,.15);color:#8FD0FA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft" style="color:#fff">No platform fees</div><div class="fd" style="color:#a9c2d1">Unrestricted access to your data and performance metrics.</div></div></li>
         <li><span class="fi" style="background:rgba(46,163,242,.15);color:#8FD0FA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft" style="color:#fff">Compare across the network</div><div class="fd" style="color:#a9c2d1">Routes, partners and regions, season on season.</div></div></li>
@@ -172,7 +165,7 @@
       <div class="tracker-card">
         <div class="tracker-top"><div class="route">Network performance</div><span class="live-tag"><span class="dot"></span> Aggregated</span></div>
         <div class="map-frame" style="background:linear-gradient(160deg,#F1F8FD,#E4F2FC);padding:18px">
-          <svg viewBox="0 0 460 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network performance by region — average validated-on-profile percent; lower is higher risk. Africa 77.2%, Middle East 85.7%, UK 93.3%, Far East 94.5%, Northern Europe 95.0%, N America 95.5%, Southern Europe 96.8%. Network average 91.1%.">
+          <svg viewBox="0 0 460 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network performance by region, average validated-on-profile percent; lower is higher risk. Africa 77.2%, Middle East 85.7%, UK 93.3%, Far East 94.5%, Northern Europe 95.0%, N America 95.5%, Southern Europe 96.8%. Network average 91.1%.">
             <g font-family="PT Sans,sans-serif">
               <text x="10" y="16" font-size="12" fill="#5b7285">Lower = higher risk</text>
               <g stroke="#d5e3ee" stroke-width="1">
@@ -214,8 +207,7 @@
 <!-- QUOTE -->
 <section class="section">
   <div class="container"><div class="quote reveal">
-    <div class="mark">“</div>
-    <blockquote>The power lies in aggregation — where individual shipments combine to reveal performance, risk and quality outcomes.</blockquote>
+    <blockquote>The power lies in aggregation, where individual shipments combine to reveal performance, risk and quality outcomes.</blockquote>
     <div class="who">Escavox · Cold Chain Intelligence Platform</div>
   </div></div>
 </section>
@@ -223,7 +215,7 @@
 <!-- CTA -->
 <section class="section-sm"><div class="container"><div class="cta-band reveal">
   <h2>Stop reading data. Start making decisions.</h2>
-  <p>See what MyTracks™ reveals about your supply chain — and what it recommends you do next.</p>
+  <p>See what MyTracks™ reveals about your supply chain, and what it recommends you do next.</p>
   <div class="btns"><a href="/contact/" class="btn btn-primary btn-lg">Talk to our team</a><a href="/devices/" class="btn btn-light btn-lg">See the devices</a></div>
 </div></div></section>
 </main>
@@ -232,8 +224,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo-reversed.png" alt="Escavox">
-        <p class="footer-tagline">Quality produce has a voice</p>
+        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox">
         <a href="https://scan.escavox.com/" class="footer-cta" target="_blank" rel="noopener">Get my data
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -246,6 +237,7 @@
           <li><a href="/news/">News</a></li>
         </ul>
         <ul>
+          <li><a href="reports.html">Reports</a></li>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/the-escavox-app/">Login</a></li>
@@ -265,6 +257,6 @@
     </div>
   </div>
 </footer>
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/motion.js"></script>
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/main.js"></script>
+<script src="js/vendor/motion.js?v=20260921"></script>
+<script src="js/main.js?v=20260921"></script>
 </div>

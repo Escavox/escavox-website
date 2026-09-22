@@ -1,8 +1,8 @@
 <!-- ====================================================================
-     ESCAVOX — app.html  ·  paste into ONE Divi "Code" module
+     ESCAVOX · app.html  ·  paste into ONE Divi "Code" module
      Page template: Blank Page (Divi) so the theme header/footer is off.
      Shared CSS/JS + images expected at: https://www.escavox.com/wp-content/uploads/escavox-site/
-     Built by handover/build-handover.mjs — edit the source, not this file.
+     Built by handover/build-handover.mjs · edit the source, not this file.
      ==================================================================== -->
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.escavox.com/wp-content/uploads/escavox-site/css/styles.css">
@@ -15,19 +15,21 @@
   <div class="container nav">
     <a href="/" class="nav-logo" aria-label="Escavox home"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox"></a>
     <nav class="nav-menu" aria-label="Primary">
-      <a href="/platform/">My Tracks™ Platform</a>
+      <a href="/">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="/platform/">Platform</a>
       <a href="/devices/">Devices</a>
       <a href="/sustainability/">Sustainability</a>
       <a href="/people/">People</a>
       <a href="/news/">News</a>
       <a href="/faq/">FAQ</a>
       <a href="/the-escavox-app/" class="nav-extra">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-extra">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-extra">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </nav>
     <div class="nav-actions">
       <a href="/the-escavox-app/" class="nav-login">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-tracker">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-tracker">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -45,7 +47,7 @@
         <p class="crumb"><a href="/">Home</a> / The Escavox App</p>
         <span class="eyebrow" style="margin-top:14px">The Escavox App</span>
         <h1>Your tracks, in your pocket.</h1>
-        <p class="lead">Sign in to My Tracks™, scan a device, link orders and photos, and get shipment alerts pushed straight to your phone — the whole journey, in your hand.</p>
+        <p class="lead">Sign in to My Tracks™, scan a device, link orders and photos, and get shipment alerts pushed straight to your phone, the whole journey, in your hand.</p>
       </div>
     </div>
   </div>
@@ -104,7 +106,7 @@
       <div class="card hover reveal d1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/><path d="m21 15-5-5L5 21"/><circle cx="9" cy="9" r="2"/></svg></div>
         <h3>Let customers add data too</h3>
-        <p>Your customers can add photos of the product on arrival. Link data even when offline — the phone stores it and uploads when back in range.</p>
+        <p>Your customers can add photos of the product on arrival. Link data even when offline, the phone stores it and uploads when back in range.</p>
       </div>
       <div class="card hover reveal d2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
@@ -124,7 +126,7 @@
       <div class="card hover reveal d2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
         <h3>Stay in sync everywhere</h3>
-        <p>Everything you add on the app flows straight into My Tracks™ — one source of truth across your team.</p>
+        <p>Everything you add on the app flows straight into My Tracks™, one source of truth across your team.</p>
       </div>
     </div>
   </div>
@@ -144,8 +146,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo-reversed.png" alt="Escavox">
-        <p class="footer-tagline">Quality produce has a voice</p>
+        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox">
         <a href="https://scan.escavox.com/" class="footer-cta" target="_blank" rel="noopener">Get my data
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -158,6 +159,7 @@
           <li><a href="/news/">News</a></li>
         </ul>
         <ul>
+          <li><a href="reports.html">Reports</a></li>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/the-escavox-app/">Login</a></li>
@@ -178,6 +180,6 @@
   </div>
 </footer>
 
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/motion.js"></script>
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/main.js"></script>
+<script src="js/vendor/motion.js?v=20260921"></script>
+<script src="js/main.js?v=20260921"></script>
 </div>

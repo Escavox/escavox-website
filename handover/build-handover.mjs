@@ -74,10 +74,10 @@ function build(page) {
 
   const block =
 `<!-- ====================================================================
-     ESCAVOX — ${page}.html  ·  paste into ONE Divi "Code" module
+     ESCAVOX · ${page}.html  ·  paste into ONE Divi "Code" module
      Page template: Blank Page (Divi) so the theme header/footer is off.
      Shared CSS/JS + images expected at: ${ASSET_BASE}/
-     Built by handover/build-handover.mjs — edit the source, not this file.
+     Built by handover/build-handover.mjs · edit the source, not this file.
      ==================================================================== -->
 ${FONTS}
 <link rel="stylesheet" href="${ASSET_BASE}/css/styles.css">

@@ -1,8 +1,8 @@
 <!-- ====================================================================
-     ESCAVOX — index.html  ·  paste into ONE Divi "Code" module
+     ESCAVOX · index.html  ·  paste into ONE Divi "Code" module
      Page template: Blank Page (Divi) so the theme header/footer is off.
      Shared CSS/JS + images expected at: https://www.escavox.com/wp-content/uploads/escavox-site/
-     Built by handover/build-handover.mjs — edit the source, not this file.
+     Built by handover/build-handover.mjs · edit the source, not this file.
      ==================================================================== -->
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.escavox.com/wp-content/uploads/escavox-site/css/styles.css">
@@ -15,19 +15,21 @@
   <div class="container nav">
     <a href="/" class="nav-logo" aria-label="Escavox home"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox"></a>
     <nav class="nav-menu" aria-label="Primary">
-      <a href="/platform/">My Tracks™ Platform</a>
+      <a href="/" class="active">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="/platform/">Platform</a>
       <a href="/devices/">Devices</a>
       <a href="/sustainability/">Sustainability</a>
       <a href="/people/">People</a>
       <a href="/news/">News</a>
       <a href="/faq/">FAQ</a>
       <a href="/the-escavox-app/" class="nav-extra">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-extra">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-extra">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </nav>
     <div class="nav-actions">
       <a href="/the-escavox-app/" class="nav-login">Login</a>
-      <a href="/the-escavox-app/#scan" class="nav-tracker">Got a tracker?</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-tracker">Got a tracker?</a>
       <a href="/contact/" class="btn btn-primary">Talk to us</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -41,9 +43,9 @@
 <section class="hero">
   <div class="container">
     <div class="hero-head">
-      <span class="hero-badge reveal"><span class="dot"></span> The Cold Chain Intelligence Engine</span>
+      <span class="hero-badge reveal"><span class="dot"></span> The Cold Chain Intelligence Engine for Fresh Produce</span>
       <h1 class="reveal d1"><span class="h1-line">Know what happened. Understand why.</span><br><span class="grad">Predict what's next.</span></h1>
-      <p class="lead hero-sub reveal d2">Escavox turns the journey of every shipment into commercial intelligence that protects shelf life — for growers, exporters and importers worldwide.</p>
+      <p class="lead hero-sub reveal d2">Turning the journey of every shipment into commercial intelligence that protects shelf life for growers, exporters, importers and retailers worldwide. Escavox is the intelligence layer for global fresh produce.</p>
     </div>
 
     <div class="hero-lower">
@@ -56,8 +58,8 @@
       </div>
       <div class="hero-trust reveal d4">
         <div class="hero-stats">
-          <div class="stat"><div class="num"><span data-count="6">0</span>M+</div><div class="lbl">Journeys analysed</div></div>
-          <div class="stat"><div class="num"><span data-count="18">0</span>k+</div><div class="lbl">Tonnes of waste saved</div></div>
+          <div class="stat"><div class="num"><span data-count="1">0</span>M+</div><div class="lbl">Journeys analysed</div></div>
+          <div class="stat"><div class="num"><span data-count="20">0</span>%</div><div class="lbl">Higher quality scores in season one</div></div>
           <div class="stat"><div class="num"><span data-count="34">0</span>%</div><div class="lbl">Fewer quality claims</div></div>
         </div>
       </div>
@@ -65,7 +67,7 @@
 
     <!-- Orbiting globe visual: intelligence across every transport mode -->
     <div class="hero-visual reveal d2">
-      <div class="orbit-stage" role="img" aria-label="Escavox delivers cold chain intelligence across every transport mode — road, air, sea, rail — worldwide">
+      <div class="orbit-stage" role="img" aria-label="Escavox delivers cold chain intelligence across every transport mode, road, air, sea, rail, worldwide">
         <div class="orbit-globe"><canvas class="orbit-globe-canvas"></canvas></div>
 
         <div class="orbit-ring o1">
@@ -101,9 +103,9 @@
 <!-- ============ TRUST STRIP ============ -->
 <section class="section-sm clients" style="padding-block:clamp(18px,2vw,30px)">
   <div class="container">
-    <p class="center reveal" style="font-family:var(--font-head);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-400);margin-bottom:26px">Trusted by growers, exporters &amp; importers worldwide</p>
+    <p class="center reveal" style="font-family:var(--font-head);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-400);margin-bottom:26px">Trusted by growers, exporters, importers &amp; retailers worldwide</p>
     <div class="logo-marquee reveal">
-      <!-- Row 1 (scrolls left) — set duplicated for a seamless loop -->
+      <!-- Row 1 (scrolls left), set duplicated for a seamless loop -->
       <div class="mq-row mq-left">
         <div class="mq-track">
           <div class="mq-item"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/clients/driscolls.png" alt="Driscoll's" loading="lazy"></div>
@@ -122,7 +124,7 @@
           <div class="mq-item" aria-hidden="true"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/clients/pinata-farms.svg" alt="" loading="lazy"></div>
         </div>
       </div>
-      <!-- Row 2 (scrolls right) — set duplicated for a seamless loop -->
+      <!-- Row 2 (scrolls right), set duplicated for a seamless loop -->
       <div class="mq-row mq-right">
         <div class="mq-track">
           <div class="mq-item"><img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/clients/perfection-fresh.png" alt="Perfection Fresh" loading="lazy"></div>
@@ -149,13 +151,13 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">The problem</span>
       <h2>Quality is lost long before<br>anyone notices.</h2>
-      <p class="lead mt-s">Monitoring systems collect data. But turning that data into a decision still falls on you — usually too late to act.</p>
+      <p class="lead mt-s">Monitoring systems collect data. But turning that data into a decision still falls on you, usually too late to act.</p>
     </div>
     <div class="grid grid-3">
       <div class="card reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><path d="m2 2 20 20"/></svg></div>
         <h3>Damage goes unseen</h3>
-        <p>By the time produce arrives out of condition, the cause is already history — and the margin is gone.</p>
+        <p>By the time produce arrives out of condition, the cause is already history, and the margin is gone.</p>
       </div>
       <div class="card reveal d1">
         <div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
@@ -165,7 +167,7 @@
       <div class="card reveal d2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
         <h3>The burden sits with you</h3>
-        <p>Every shipment becomes a manual investigation. The decision is yours to make — with no time to make it.</p>
+        <p>Every shipment becomes a manual investigation. The decision is yours to make, with no time to make it.</p>
       </div>
     </div>
   </div>
@@ -177,22 +179,22 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">Beyond monitoring</span>
       <h2>You don't need more data.<br>You need answers.</h2>
-      <p class="lead mt-s">Graphs, maps and alerts describe the past. Cold Chain Intelligence tells you what it means — and what to do next.</p>
+      <p class="lead mt-s">Graphs, maps and alerts describe the past. Cold Chain Intelligence tells you what it means, and what to do next.</p>
     </div>
     <div class="cmp-wrap reveal d1" style="max-width:900px;margin-inline:auto">
-      <table class="cmp">
+      <table class="cmp cmp--rich">
         <thead>
           <tr>
             <th scope="col">Traditional monitoring</th>
-            <th scope="col" class="col-plus">Escavox — Cold Chain Intelligence</th>
+            <th scope="col" class="col-plus">Escavox, Cold Chain Intelligence</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Records temperature</td><td class="col-plus">Explains the impact on shelf life</td></tr>
-          <tr><td>Shows humidity</td><td class="col-plus">Predicts moisture loss</td></tr>
-          <tr><td>Sends threshold alerts</td><td class="col-plus">Prioritises commercial risk</td></tr>
-          <tr><td>Plots a route on a map</td><td class="col-plus">Pinpoints where quality was lost</td></tr>
-          <tr><td>Provides reports</td><td class="col-plus">Delivers operational intelligence</td></tr>
+          <tr><td class="cmp-old">Records temperature</td><td class="col-plus cmp-new">Explains the impact on shelf life</td></tr>
+          <tr><td class="cmp-old">Shows humidity</td><td class="col-plus cmp-new">Predicts moisture loss</td></tr>
+          <tr><td class="cmp-old">Sends threshold alerts</td><td class="col-plus cmp-new">Prioritises commercial risk</td></tr>
+          <tr><td class="cmp-old">Plots a route on a map</td><td class="col-plus cmp-new">Pinpoints where quality was lost</td></tr>
+          <tr><td class="cmp-old">Provides reports</td><td class="col-plus cmp-new">Delivers operational intelligence</td></tr>
         </tbody>
       </table>
     </div>
@@ -205,15 +207,15 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">The new category</span>
       <h2>Cold Chain Intelligence</h2>
-      <p class="lead mt-s">We convert the environment of every shipment into commercial intelligence — the insight you actually make decisions on.</p>
+      <p class="lead mt-s">We convert the environment of every shipment into commercial intelligence, the insight you actually make decisions on.</p>
     </div>
     <div class="grid grid-3">
-      <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M8 12H4m16 0h-4m-4 4v4M6.3 6.3l2.8 2.8m5.8 5.8 2.8 2.8m0-11.4-2.8 2.8M9.1 14.9l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Shelf-life impact</h3><p>How much life a shipment gained or lost — quantified, not guessed.</p></div>
+      <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M8 12H4m16 0h-4m-4 4v4M6.3 6.3l2.8 2.8m5.8 5.8 2.8 2.8m0-11.4-2.8 2.8M9.1 14.9l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Shelf-life impact</h3><p>How much life a shipment gained or lost, quantified, not guessed.</p></div>
       <div class="card hover reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.7 12 2.7Z"/></svg></div><h3>Condensation &amp; moisture risk</h3><p>Where produce is sweating, drying or at risk of chill injury.</p></div>
-      <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Cold chain performance</h3><p>Which legs, facilities and partners protect quality — and which erode it.</p></div>
-      <div class="card hover reveal"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></div><h3>Context-aware alerts</h3><p>Not every breach matters. We flag the ones that threaten value.</p></div>
+      <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Cold chain performance</h3><p>Which legs, facilities and partners protect quality, and which erode it.</p></div>
+      <div class="card hover reveal"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h10M11 9h7M11 13h4"/><path d="M3 17l3 3 3-3M6 20V4"/></svg></div><h3>Risk ranking</h3><p>Every shipment ranked by commercial risk, worst-first, so you act on what threatens value before it costs you.</p></div>
       <div class="card hover reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h6"/></svg></div><h3>Shipment benchmarking</h3><p>Compare routes, seasons and suppliers on the metric that matters: quality out.</p></div>
-      <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M12 8a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4ZM9 22h6"/></svg></div><h3>Predictive analytics</h3><p>Model outcomes before the truck leaves — and act while it still counts.</p></div>
+      <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M12 8a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4ZM9 22h6"/></svg></div><h3>Predictive analytics</h3><p>Model outcomes before the truck leaves, and act while it still counts.</p></div>
     </div>
   </div>
 </section>
@@ -224,7 +226,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">The Escavox Intelligence Engine</span>
       <h2>How intelligence is made.</h2>
-      <p class="lead mt-s" style="color:#a9c2d1">Raw signals become commercial decisions through layers of environmental science and physics — not a dashboard of dots.</p>
+      <p class="lead mt-s" style="color:#a9c2d1">Raw signals become commercial decisions through layers of environmental science and physics, not a dashboard of dots.</p>
     </div>
     <div class="engine reveal d1">
       <div class="engine-step">
@@ -244,12 +246,12 @@
       <div class="engine-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
       <div class="engine-step is-intel">
         <div class="es-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg></div>
-        <div><div class="es-t">Cold Chain Intelligence</div><div class="es-s">The signal that matters — risk, impact and outlook.</div></div>
+        <div><div class="es-t">Cold Chain Intelligence</div><div class="es-s">The signal that matters, risk, impact and outlook.</div></div>
       </div>
       <div class="engine-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
       <div class="engine-step">
         <div class="es-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><div class="es-t">Commercial decisions</div><div class="es-s">Prioritise, divert, accept or reject — with confidence.</div></div>
+        <div><div class="es-t">Commercial decisions</div><div class="es-s">Prioritise, divert, accept or reject, with confidence.</div></div>
       </div>
       <div class="engine-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
       <div class="engine-step is-outcome">
@@ -266,7 +268,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow center">Outcomes</span>
       <h2>Intelligence you can bank.</h2>
-      <p class="lead mt-s">Every insight ends in a commercial result — not a chart.</p>
+      <p class="lead mt-s">Every insight ends in a commercial result, not a chart.</p>
     </div>
     <div class="grid grid-4">
       <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/></svg></div><h3>Protect shelf life</h3></div>
@@ -281,13 +283,44 @@
   </div>
 </section>
 
+<!-- ============ GLOBAL REACH ============ -->
+<section class="section" id="reach">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">Global reach</span>
+      <h2>Wherever your produce travels,<br>we're already there.</h2>
+      <p class="lead mt-s">With global connectivity, Escavox follows fresh produce across the world's major trade lanes, with deep coverage in the export and import hubs that matter most.</p>
+    </div>
+    <figure class="reach-map reveal d1">
+      <img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/live-device-map.webp" alt="World map showing live Escavox-tracked shipments across six continents, each dot a device reporting its shelf-life risk status in real time" loading="lazy">
+      <figcaption>
+        <span>Live Escavox shipments worldwide, each dot a device reporting in real time.</span>
+        <span class="reach-legend"><span class="lg-dot" style="background:#37A768"></span>Low risk<span class="lg-dot" style="background:#E7B34A"></span>Warning<span class="lg-dot" style="background:#CF5547"></span>Critical</span>
+      </figcaption>
+    </figure>
+    <div class="reach-hubs reveal d1">
+      <div class="reach-hub"><span class="rh-tag">Major hub</span><div class="rh-name">South Africa</div><div class="rh-note">Southern Africa export base</div></div>
+      <div class="reach-hub"><span class="rh-tag">Major hub</span><div class="rh-name">Spain</div><div class="rh-note">Mediterranean gateway</div></div>
+      <div class="reach-hub"><span class="rh-tag">Major hub</span><div class="rh-name">United Kingdom</div><div class="rh-note">Northern Europe import hub</div></div>
+      <div class="reach-hub"><span class="rh-tag">Major hub</span><div class="rh-name">Australia</div><div class="rh-note">Asia-Pacific origin &amp; arrival</div></div>
+    </div>
+    <div class="reach-grid reveal d2">
+      <div class="reach-region"><h3>Africa</h3><p>South Africa · Zimbabwe · Namibia · Mozambique · Morocco · Egypt</p></div>
+      <div class="reach-region"><h3>Europe</h3><p>United Kingdom · Spain · Portugal · France · Germany · Netherlands · Belgium · Sweden · Norway · Türkiye</p></div>
+      <div class="reach-region"><h3>Asia-Pacific</h3><p>Australia · New Zealand · China · Malaysia</p></div>
+      <div class="reach-region"><h3>Americas</h3><p>Brazil · Peru · Chile · Mexico</p></div>
+    </div>
+    <p class="reach-stat center reveal">Active support across <strong>20+ countries</strong> spanning the Americas, Europe, Africa and Asia-Pacific, and growing.</p>
+  </div>
+</section>
+
 <!-- ============ PLATFORM (decision-framed) ============ -->
 <section class="section" style="background:var(--bg-tint);border-block:1px solid var(--line-soft)">
   <div class="container split">
     <div class="split-copy reveal">
       <span class="eyebrow">The platform · MyTracks™</span>
       <h2 class="mt-s">Every view answers a decision.</h2>
-      <p class="lead mt-s">Not "what does this data show?" — but "what do I do now?" MyTracks™ turns the whole journey into a single, ranked view of where value is at risk.</p>
+      <p class="lead mt-s">Not "what does this data show?", but "what do I do now?" MyTracks™ turns the whole journey into a single, ranked view of where value is at risk.</p>
       <ul class="feature-list">
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft">See risk, not readings</div><div class="fd">Shipments ranked by commercial risk, worst-first.</div></div></li>
         <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft">Know the weak link</div><div class="fd">The exact leg, facility or hand-off eroding shelf life.</div></div></li>
@@ -297,22 +330,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
     <div class="split-media reveal d2">
-      <div class="tracker-card" style="box-shadow:var(--shadow-lg)">
-        <div class="tracker-top"><div class="route">Shelf-life outlook</div><span class="live-tag"><span class="dot"></span> Predicted</span></div>
-        <div class="map-frame" style="background:linear-gradient(160deg,#F1F8FD,#E4F2FC);padding:18px">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Predicted shelf-life trend">
-            <g stroke="#CFE7F7" stroke-width="1"><path d="M0 45h400M0 90h400M0 135h400"/></g>
-            <polyline points="10,140 70,120 130,124 190,96 250,70 310,58 390,30" fill="none" stroke="#037EB0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="10,140 70,120 130,124 190,96 250,70 310,58 390,30 390,180 10,180" fill="#037EB0" opacity=".08"/>
-            <circle cx="250" cy="70" r="6" fill="#EF8131"/><circle cx="250" cy="70" r="12" fill="#EF8131" opacity=".2"/>
-          </svg>
-        </div>
-        <div class="metric-row">
-          <div class="metric"><div class="m-val">+2.4d</div><div class="m-lbl">Shelf life protected</div></div>
-          <div class="metric"><div class="m-val">Port</div><div class="m-lbl">Weak link</div></div>
-          <div class="metric"><div class="m-val">Act now</div><div class="m-lbl">Recommended</div></div>
-        </div>
-      </div>
+      <figure class="app-frame app-frame--bare" style="margin:0;box-shadow:var(--shadow-lg)">
+        <img src="https://www.escavox.com/wp-content/uploads/escavox-site/img/product/shelf-life-curve.jpg" alt="Escavox Single Track view, a shelf-life curve broken down by supply-chain stage, the journey mapped from farm to retailer, and per-stage temperature and dwell details" loading="lazy">
+      </figure>
     </div>
   </div>
 </section>
@@ -323,7 +343,7 @@
     <div class="statement reveal">
       <span class="eyebrow center">Why Escavox exists</span>
       <p class="mt-m">The industry spent a decade collecting data.<br><span class="muted">The next decade is about making better decisions with it.</span></p>
-      <p class="lead mt-l" style="max-width:640px;margin-inline:auto;color:#a9c2d1">Monitoring was never the point. It's simply how we listen. What matters is the decision it unlocks — and the produce it protects.</p>
+      <p class="lead mt-l" style="max-width:640px;margin-inline:auto;color:#a9c2d1">Monitoring was never the point. It's simply how we listen. What matters is the decision it unlocks, and the produce it protects.</p>
     </div>
   </div>
 </section>
@@ -350,7 +370,7 @@
     <div class="split-copy reveal d1">
       <span class="eyebrow">The data layer</span>
       <h2 class="mt-s">Intelligence needs a source.</h2>
-      <p class="lead mt-s">Always-on or manually started, our devices are simply how we listen — across every commodity and every transport mode. The hardware is the quiet part. The intelligence is the product.</p>
+      <p class="lead mt-s">Always-on or manually started, our devices are simply how we listen, across every commodity and every transport mode. The hardware is the quiet part. The intelligence is the product.</p>
       <div class="mt-l"><a href="/devices/" class="btn btn-ghost">See the device range
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
@@ -358,7 +378,7 @@
 </section>
 
 <!-- ============ FUTURE VISION ============ -->
-<section class="section dark" style="padding-top:0">
+<section class="section dark" style="padding-block:clamp(48px,6vw,88px)">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow center">Where we're going</span>
@@ -394,8 +414,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo-reversed.png" alt="Escavox">
-        <p class="footer-tagline">Quality produce has a voice</p>
+        <img class="footer-logo" src="https://www.escavox.com/wp-content/uploads/escavox-site/img/escavox-logo.png" alt="Escavox">
         <a href="https://scan.escavox.com/" class="footer-cta" target="_blank" rel="noopener">Get my data
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -408,6 +427,7 @@
           <li><a href="/news/">News</a></li>
         </ul>
         <ul>
+          <li><a href="reports.html">Reports</a></li>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/the-escavox-app/">Login</a></li>
@@ -428,6 +448,6 @@
   </div>
 </footer>
 
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/motion.js"></script>
-<script src="https://www.escavox.com/wp-content/uploads/escavox-site/js/main.js"></script>
+<script src="js/vendor/motion.js?v=20260921"></script>
+<script src="js/main.js?v=20260921"></script>
 </div>
