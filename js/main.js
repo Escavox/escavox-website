@@ -2,6 +2,19 @@
 (function () {
   "use strict";
 
+  /* Google Analytics 4 (gtag.js) — loaded site-wide via main.js */
+  (function () {
+    var GA_ID = "G-3FF48SF577";
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+  })();
+
   var M = window.Motion;                                   // vendored motion.js (UMD global)
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canAnimate = !!(M && M.animate && M.inView) && !reduce;
@@ -117,6 +130,7 @@
         body: JSON.stringify(payload)
       }).then(function (res) { return res.json(); }).then(function (json) {
         if (!json.success) throw new Error(json.message || "Submission failed");
+        if (window.gtag) gtag("event", "generate_lead", { form_name: "contact" });
         form.style.display = "none";
         if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
       }).catch(function () {
