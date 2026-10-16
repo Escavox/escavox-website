@@ -7,7 +7,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; } /* clear the sticky header on #anchor jumps */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
@@ -758,3 +758,17 @@ section { position: relative; }
 .legal .note { background: var(--bg-tint); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: var(--r-md); padding: 16px 18px; margin: 0 0 24px; font-size: .95rem; }
 .footer-legal { display: inline-flex; flex-wrap: wrap; gap: 4px 8px; }
 .footer-legal a { white-space: nowrap; }
+
+/* ---------- Developers page — code sample card ---------- */
+.dev-split > * { min-width: 0; } /* let the code sample scroll instead of widening the grid on mobile */
+.code-card { background: var(--navy); border: 1px solid var(--navy-2); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+.code-card figcaption { display: flex; align-items: center; gap: 12px; padding: 12px 18px; background: var(--navy-2); color: #cfe0ea; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .84rem; }
+.code-card .dots { display: inline-flex; gap: 6px; }
+.code-card .dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.code-card .tag { margin-left: auto; font-family: var(--font-head); font-weight: 700; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: #F7B77D; background: rgba(239,129,51,.16); border-radius: var(--r-pill); padding: 3px 10px; }
+.code-card pre { margin: 0; padding: 20px 22px; overflow-x: auto; color: #cfe0ea; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88rem; line-height: 1.65; }
+.code-card .k { color: var(--blue-300); }
+.code-card .s { color: #A8E3C4; }
+.code-card .n { color: #F7B77D; }
+.code-note { margin-top: 12px; font-size: .86rem; color: var(--ink-400); }
+.feature-list .fd a { color: var(--blue-600); font-weight: 600; }

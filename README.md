@@ -27,7 +27,9 @@ local server is more accurate.)
 index.html            Home
 platform.html         My Tracks™ Platform
 devices.html          Devices (G6+, G6, G4, Escavox Lite)
-sustainability.html   Sustainability
+developers.html       Developers (API & integrations; request access → contact.html?topic=api)
+about.html            Our Story (includes the Sustainability section, #sustainability)
+sustainability.html   Redirect stub → about.html#sustainability
 people.html           People / team
 news.html             News
 faq.html              FAQ

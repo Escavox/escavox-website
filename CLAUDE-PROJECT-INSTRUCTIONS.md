@@ -33,7 +33,7 @@ ABOUT THE SITE
   JavaScript (js/main.js), plus a vendored animation library (js/vendor/motion.js).
   There is NO build step, NO framework, and NO backend.
 - Positioning / message: "Cold Chain Intelligence". Tone is short, confident, declarative.
-- Pages: index (home), platform (branded "My Tracks™ Platform"), devices, sustainability,
+- Pages: index (home), platform (branded "My Tracks™ Platform"), devices, developers (API & integrations), about ("Our Story", incl. sustainability),
   people, news, faq, contact.
 
 HOW TO HELP

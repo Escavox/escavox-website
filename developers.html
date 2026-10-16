@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developers | Escavox API &amp; integrations</title>
+<meta name="description" content="Connect Escavox to your systems. Pull live cold chain telemetry, alerts, VOP quality scores and shelf-life intelligence into your ERP, WMS, BI and customer portals.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="css/styles.css?v=20261016">
+<!-- seo-stage1 -->
+<link rel="canonical" href="https://www.escavox.com/developers.html">
+<script>if(location.hostname!=='www.escavox.com'&&location.hostname!=='escavox.com'){var m=document.createElement('meta');m.name='robots';m.content='noindex,nofollow';document.head.appendChild(m);}</script>
+<!-- seo-stage3 -->
+<meta property="og:site_name" content="Escavox">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Developers | Escavox API &amp; integrations">
+<meta property="og:description" content="Connect Escavox to your systems. Pull live cold chain telemetry, alerts, VOP quality scores and shelf-life intelligence into your ERP, WMS, BI and customer portals.">
+<meta property="og:url" content="https://www.escavox.com/developers.html">
+<meta property="og:image" content="https://www.escavox.com/assets/img/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Escavox logo">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html" class="nav-logo" aria-label="Escavox home"><img src="assets/img/escavox-logo.png" alt="Escavox"></a>
+    <nav class="nav-menu" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="platform.html">MyTracks&trade; Platform</a>
+      <a href="devices.html">Devices</a>
+      <a href="developers.html" class="active">Developers</a>
+      <a href="people.html">Our People</a>
+      <a href="news.html">News</a>
+      <a href="faq.html">FAQ</a>
+      <a href="app.html" class="nav-extra">Login</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-extra">Got a tracker?</a>
+      <a href="contact.html" class="btn btn-primary">Talk to us</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="app.html" class="nav-login">Login</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-tracker">Got a tracker?</a>
+      <a href="contact.html" class="btn btn-primary">Talk to us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero">
+  <div class="container inner reveal">
+    <p class="crumb"><a href="index.html">Home</a> / Developers</p>
+    <span class="eyebrow" style="margin-top:14px">Developers</span>
+    <h1>Build on Cold Chain Intelligence.</h1>
+    <p class="lead">Bring Escavox shipment data and intelligence straight into the systems your team already runs: ERP, WMS, TMS, QA and BI. One integration, every tracked load.</p>
+    <div class="hero-cta" style="margin-top:28px"><a href="contact.html?topic=api" class="btn btn-primary btn-lg">Request API access</a><a href="#data" class="btn btn-ghost btn-lg">What you can access</a></div>
+  </div>
+</section>
+
+<!-- WHAT YOU CAN ACCESS -->
+<section class="section" id="data" style="padding-top:clamp(24px,3vw,40px)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">The data</span>
+      <h2>Everything MyTracks&trade; knows, in your stack.</h2>
+      <p class="lead mt-s">The same data and intelligence behind the MyTracks&trade; platform, available to your own applications.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0Z"/></svg></div><h3>Live telemetry</h3><p>Temperature, humidity and dew point readings from every device, as they arrive.</p></div>
+      <div class="card hover reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Location &amp; journey</h3><p>Position history and route for road, air, sea and rail, origin to destination.</p></div>
+      <div class="card hover reveal d2"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0ZM12 9v4M12 17h.01"/></svg></div><h3>Events &amp; alerts</h3><p>Excursions, shock events (G6+) and journey milestones, so your systems react in time.</p></div>
+      <div class="card hover reveal d3"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M12 8a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4ZM9 22h6"/></svg></div><h3>Intelligence</h3><p>VOP quality scores, shelf-life impact and commercial-risk ranking per shipment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAYS TO INTEGRATE -->
+<section class="section" style="background:var(--bg-tint);border-block:1px solid var(--line-soft)">
+  <div class="container split dev-split">
+    <div class="reveal">
+      <span class="eyebrow">Ways to integrate</span>
+      <h2 class="mt-s">Connect the way that suits your team.</h2>
+      <!-- TODO: confirm integration options with the product team before launch -->
+      <ul class="feature-list">
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><div><div class="ft">REST API</div><div class="fd">Pull tracks, readings and intelligence as JSON over HTTPS, on your schedule.</div></div></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><div><div class="ft">Alerts to your systems</div><div class="fd">Have excursions and key events pushed to you, rather than polling for them.</div></div></li>
+        <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span><div><div class="ft">Data exports &amp; reports</div><div class="fd">Row-level exports and branded track reports for QA, claims and audit. <a href="reports.html">See reports</a></div></div></li>
+      </ul>
+    </div>
+    <div class="reveal d1">
+      <figure class="code-card" aria-label="Illustrative example of a track summary response">
+        <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>GET /tracks/{trackId}<span class="tag">Illustrative</span></figcaption>
+<pre><code>{
+  <span class="k">"trackId"</span>: <span class="s">"6751XXXXX"</span>,
+  <span class="k">"commodity"</span>: <span class="s">"Table grapes"</span>,
+  <span class="k">"route"</span>: { <span class="k">"origin"</span>: <span class="s">"Cape Town"</span>, <span class="k">"destination"</span>: <span class="s">"Rotterdam"</span> },
+  <span class="k">"status"</span>: <span class="s">"in_transit"</span>,
+  <span class="k">"latest"</span>: {
+    <span class="k">"temperatureC"</span>: <span class="n">-0.4</span>,
+    <span class="k">"humidityPct"</span>: <span class="n">91</span>
+  },
+  <span class="k">"vopScore"</span>: <span class="n">87</span>,
+  <span class="k">"risk"</span>: <span class="s">"low"</span>
+}</code></pre>
+      </figure>
+      <p class="code-note">Example for illustration only. Field names and formats are set out in the API documentation shared on access.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">What teams build</span>
+      <h2>Intelligence where decisions are made.</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card reveal"><h3>ERP &amp; WMS</h3><p>Attach quality and shelf-life data to every order and receipt, automatically.</p></div>
+      <div class="card reveal d1"><h3>BI dashboards</h3><p>Blend cold chain performance with sales and claims in Power BI, Tableau and more.</p></div>
+      <div class="card reveal d2"><h3>QA &amp; claims</h3><p>Pull the independent record straight into inspections, disputes and supplier scorecards.</p></div>
+      <div class="card reveal d3"><h3>Customer portals</h3><p>Share live shipment status and condition with your own customers, under your brand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section class="section" style="background:var(--bg-tint);border-block:1px solid var(--line-soft)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">Getting started</span>
+      <h2>From request to first call.</h2>
+    </div>
+    <div class="steps reveal d1">
+      <div class="step"><div class="n"></div><h3>Request access</h3><p>Tell us what you want to connect and the data you need.</p></div>
+      <div class="step"><div class="n"></div><h3>Get credentials</h3><p>We issue access scoped to your organisation's tracks, plus the API documentation.</p></div>
+      <div class="step"><div class="n"></div><h3>Build &amp; test</h3><p>Connect to live tracks with support from our team along the way.</p></div>
+      <div class="step"><div class="n"></div><h3>Go live</h3><p>Every new shipment flows into your systems automatically.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm"><div class="container"><div class="cta-band reveal">
+  <h2>Ready to plug in?</h2>
+  <p>Tell us about your systems and we'll set you up with API access and documentation.</p>
+  <div class="btns"><a href="contact.html?topic=api" class="btn btn-primary btn-lg">Request API access</a><a href="platform.html" class="btn btn-light btn-lg">Explore the platform</a></div>
+</div></div></section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/escavox-logo.png" alt="Escavox">
+        <a href="https://scan.escavox.com/" class="footer-cta" target="_blank" rel="noopener">Get my data
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <ul>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="devices.html">Devices</a></li>
+          <li><a href="developers.html">Developers</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+        <ul>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="app.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; <span id="year">2026</span> Escavox. All rights reserved. &nbsp;&middot;&nbsp; <span class="footer-legal"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="cookie-policy.html">Cookies</a></span></div>
+      <div class="footer-bottom-right">
+        <span class="footer-offices">Sydney &middot; Cape Town</span>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/escavox" aria-label="Escavox on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 10.9 21 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/vendor/motion.js?v=20260921"></script>
+<script src="js/main.js?v=20261016"></script>
+</body>
+</html>
