@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developers &amp; API | Escavox</title>
+<meta name="description" content="Integrate Escavox cold chain data into your own systems. Access shipment, device and journey data through the Escavox REST API and the Integration Hub.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="css/styles.css?v=20260921">
+<!-- seo-stage1 -->
+<link rel="canonical" href="https://www.escavox.com/developer.html">
+<script>if(location.hostname!=='www.escavox.com'&&location.hostname!=='escavox.com'){var m=document.createElement('meta');m.name='robots';m.content='noindex,nofollow';document.head.appendChild(m);}</script>
+<!-- seo-stage3 -->
+<meta property="og:site_name" content="Escavox">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Developers &amp; API | Escavox">
+<meta property="og:description" content="Integrate Escavox cold chain data into your own systems. Access shipment, device and journey data through the Escavox REST API and the Integration Hub.">
+<meta property="og:url" content="https://www.escavox.com/developer.html">
+<meta property="og:image" content="https://www.escavox.com/assets/img/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Escavox logo">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html" class="nav-logo" aria-label="Escavox home"><img src="assets/img/escavox-logo.png" alt="Escavox"></a>
+    <nav class="nav-menu" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="platform.html">MyTracks&trade; Platform</a>
+      <a href="devices.html">Devices</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="people.html">Our People</a>
+      <a href="news.html">News</a>
+      <a href="faq.html">FAQ</a>
+      <a href="developer.html" class="active">Developer</a>
+      <a href="app.html" class="nav-extra">Login</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-extra">Got a tracker?</a>
+      <a href="contact.html" class="btn btn-primary">Talk to us</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="app.html" class="nav-login">Login</a>
+      <a href="https://escavoxwebapi.azurewebsites.net/scandevice" target="_blank" rel="noopener" class="nav-tracker">Got a tracker?</a>
+      <a href="contact.html" class="btn btn-primary">Talk to us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="page-hero" style="padding-top:clamp(20px,2.5vw,40px)">
+  <div class="container inner reveal">
+    <p class="crumb"><a href="index.html">Home</a> / Developers</p>
+    <span class="eyebrow" style="margin-top:14px">Developers</span>
+    <h1>Build on Escavox</h1>
+    <p class="lead">Bring real-time cold chain intelligence into your own systems. The Escavox API and Integration Hub let your team connect shipment, device and journey data directly to the platforms you already run, from ERP and TMS to your own dashboards.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU CAN BUILD -->
+<section class="section" style="padding-top:clamp(24px,3vw,40px)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow center">What you can build</span>
+      <h2>Your data, where you need it.</h2>
+      <p class="lead mt-s">Everything the My Tracks&trade; platform shows you is available programmatically, so you can automate workflows and feed Escavox intelligence into the tools your business runs on.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c0-1.1 4-2 9-2s9 .9 9 2-4 2-9 2-9-.9-9-2Z"/><path d="M3 5v14c0 1.1 4 2 9 2s9-.9 9-2V5"/><path d="M3 12c0 1.1 4 2 9 2s9-.9 9-2"/></svg></div><h3>Shipment &amp; journey data</h3><p>Pull shipment status, legs and journey history to keep your own systems in sync with what is actually happening in the chain.</p></div>
+      <div class="card hover reveal d1"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Device telemetry</h3><p>Access temperature, humidity, location and condition data captured by Escavox devices across every leg of the journey.</p></div>
+      <div class="card hover reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Real-time updates</h3><p>React to shipments and conditions as they change, so alerts and decisions flow straight into your own workflows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATION HUB -->
+<section class="section dark">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow">The Integration Hub</span>
+      <h2 class="mt-s">One place to connect to Escavox</h2>
+      <p class="lead mt-s" style="color:#a9c2d1">The Integration Hub is your developer portal: explore the API, manage access, and set up the connections that move Escavox data into your environment, all in one place.</p>
+      <ul class="feature-list">
+        <li><span class="fi" style="background:rgba(46,163,242,.15);color:#8FD0FA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft" style="color:#fff">Explore the API</div><div class="fd" style="color:#a9c2d1">Browse endpoints and interactive reference documentation.</div></div></li>
+        <li><span class="fi" style="background:rgba(46,163,242,.15);color:#8FD0FA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft" style="color:#fff">Manage access</div><div class="fd" style="color:#a9c2d1">Secure, token-based authentication for your integrations.</div></div></li>
+        <li><span class="fi" style="background:rgba(46,163,242,.15);color:#8FD0FA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><div class="ft" style="color:#fff">Set up connections</div><div class="fd" style="color:#a9c2d1">Wire Escavox data into the systems your business runs on.</div></div></li>
+      </ul>
+      <!-- HOLD: when the production Integration Hub URL is ready, replace the span below with:
+           <a href="PROD_URL" target="_blank" rel="noopener" class="btn btn-light">Open the Integration Hub <svg ...arrow.../></a> -->
+      <div class="mt-l" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a href="contact.html" class="btn btn-primary">Request early access
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="btn btn-light" aria-disabled="true" style="opacity:.5;pointer-events:none;cursor:default">Integration Hub &middot; coming soon</span>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)">
+        <span class="eyebrow" style="color:#8FD0FA">Built on standards</span>
+        <ul class="feature-list" style="margin-top:14px">
+          <li><span class="fi" style="background:rgba(239,129,49,.18);color:#F6A662"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></svg></span><div><div class="ft" style="color:#fff">REST &amp; versioned</div><div class="fd" style="color:#a9c2d1">Predictable, versioned REST endpoints that are stable to build on.</div></div></li>
+          <li><span class="fi" style="background:rgba(239,129,49,.18);color:#F6A662"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><div><div class="ft" style="color:#fff">OpenAPI documented</div><div class="fd" style="color:#a9c2d1">A full OpenAPI specification so your team can generate clients fast.</div></div></li>
+          <li><span class="fi" style="background:rgba(239,129,49,.18);color:#F6A662"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/></svg></span><div><div class="ft" style="color:#fff">Secure by design</div><div class="fd" style="color:#a9c2d1">Token-based authentication and role-based access to your data.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm"><div class="container"><div class="cta-band reveal">
+  <h2>Ready to integrate with Escavox?</h2>
+  <p>Tell us what you want to connect and our team will set you up with API access and the documentation you need to get started.</p>
+  <div class="btns"><a href="contact.html" class="btn btn-primary btn-lg">Talk to our team</a><a href="platform.html" class="btn btn-light btn-lg">Explore the platform</a></div>
+</div></div></section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/escavox-logo.png" alt="Escavox">
+        <a href="https://scan.escavox.com/" class="footer-cta" target="_blank" rel="noopener">Get my data
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="devices.html">Devices</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
+        </ul>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="developer.html">Developer</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; <span id="year">2026</span> Escavox. All rights reserved. &nbsp;&middot;&nbsp; <span class="footer-legal"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="cookie-policy.html">Cookies</a></span></div>
+      <div class="footer-bottom-right">
+        <span class="footer-offices">Sydney &middot; Cape Town</span>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/escavox" aria-label="Escavox on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 10.9 21 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/vendor/motion.js?v=20260921"></script>
+<script src="js/main.js?v=20261011"></script>
+</body>
+</html>
