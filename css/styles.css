@@ -138,7 +138,7 @@ section { position: relative; }
 .header.scrolled { border-color: var(--line); box-shadow: 0 4px 20px rgba(11,36,50,.05); }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
 .nav-logo img { height: 30px; width: auto; }
-.nav-menu { display: flex; align-items: center; gap: 5px; margin-right: auto; margin-left: clamp(14px, 2vw, 32px); }
+.nav-menu { display: flex; align-items: center; flex: 1; justify-content: space-between; gap: clamp(4px, 0.8vw, 14px); margin-right: clamp(14px, 2vw, 32px); margin-left: clamp(14px, 2vw, 32px); }
 .nav-menu a {
   font-family: var(--font-head); font-weight: 600; font-size: .95rem; color: var(--ink-700);
   padding: 9px 13px; border-radius: var(--r-pill); transition: color .16s ease, background .16s ease; white-space: nowrap;
