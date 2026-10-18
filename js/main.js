@@ -102,6 +102,11 @@
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+      var captcha = form.querySelector('textarea[name="h-captcha-response"]');
+      if (form.querySelector(".h-captcha") && (!captcha || !captcha.value)) {
+        alert("Please complete the captcha check before sending.");
+        return;
+      }
 
       var ok = document.querySelector("#form-success");
       var btn = form.querySelector('button[type="submit"]');
