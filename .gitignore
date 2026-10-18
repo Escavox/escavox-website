@@ -8,5 +8,6 @@ Thumbs.db
 
 # Tooling
 .claude-flow/
-.claude/
+.claude/*
+!.claude/skills/
 .qoder/
