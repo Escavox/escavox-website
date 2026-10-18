@@ -2,19 +2,6 @@
 (function () {
   "use strict";
 
-  /* Google Analytics 4 (gtag.js) — loaded site-wide via main.js */
-  (function () {
-    var GA_ID = "G-3FF48SF577";
-    var s = document.createElement("script");
-    s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    gtag("js", new Date());
-    gtag("config", GA_ID);
-  })();
-
   var M = window.Motion;                                   // vendored motion.js (UMD global)
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canAnimate = !!(M && M.animate && M.inView) && !reduce;
@@ -115,6 +102,11 @@
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+      var captcha = form.querySelector('textarea[name="h-captcha-response"]');
+      if (form.querySelector(".h-captcha") && (!captcha || !captcha.value)) {
+        alert("Please complete the captcha check before sending.");
+        return;
+      }
 
       var ok = document.querySelector("#form-success");
       var btn = form.querySelector('button[type="submit"]');

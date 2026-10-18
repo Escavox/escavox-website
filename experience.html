@@ -3,14 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FF48SF577"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3FF48SF577');
-</script>
+<!-- Google Analytics loads only after cookie consent (js/consent.js) -->
+<script src="js/consent.js?v=20261018" defer></script>
 <title>Escavox | Cold Chain Intelligence</title>
 <meta name="description" content="Escavox turns the journey of every shipment into commercial intelligence that protects shelf life. Cold chain intelligence, not temperature logging.">
 <link rel="icon" href="assets/img/favicon.png">
@@ -20,14 +14,14 @@
 <link rel="stylesheet" href="brand/brand.css">
 <link rel="stylesheet" href="brand/brand.dark.css">
 <link rel="stylesheet" href="css/experience.css">
-<!-- Pinned ESM deps (jsDelivr). Import map so no bundler is needed. -->
+<!-- ESM deps vendored from npm (three@0.169.0, gsap@3.13.0, lenis@1.1.20); see js/vendor/README.md. Import map so no bundler is needed. -->
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
-    "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
-    "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js",
-    "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.mjs"
+    "three": "./js/vendor/three/three.module.min.js",
+    "gsap": "./js/vendor/gsap/index.js",
+    "gsap/ScrollTrigger": "./js/vendor/gsap/ScrollTrigger.js",
+    "lenis": "./js/vendor/lenis/lenis.mjs"
   }
 }
 </script>
@@ -147,7 +141,7 @@
   <div class="xp-footer-inner">
     <img src="assets/img/escavox-mark-reversed.png" alt="Escavox" class="xp-footer-mark">
     <p class="tagline">quality produce has a voice</p>
-    <p class="copyright">© <span id="year">2026</span> Escavox. All rights reserved.</p>
+    <p class="copyright">© <span id="year">2026</span> Escavox. All rights reserved. · <a href="cookie-policy.html">Cookies</a> · <a href="#" data-cookie-settings>Cookie settings</a></p>
   </div>
 </footer>
 

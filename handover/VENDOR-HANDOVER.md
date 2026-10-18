@@ -29,6 +29,7 @@ directory, **keeping the folder structure**, so it ends up at:
 wp-content/uploads/escavox-site/
 ├── css/styles.css
 ├── js/motion.js
+├── js/consent.js
 ├── js/main.js
 ├── img/…            (logos, devices, team, client logos)
 └── mytracks-demo.html
