@@ -27,7 +27,7 @@ local server is more accurate.)
 index.html            Home
 platform.html         My Tracks™ Platform
 devices.html          Devices (G6+, G6, G4, Escavox Lite)
-developers.html       Developers — intro + "Open the Integration Hub" buttons (https://integration.escavox.com/)
+developers.html       Developer — Integration Hub panel; "Open the Integration Hub" → https://integration.escavox.com/
 about.html            Our Story (includes the Sustainability section, #sustainability)
 sustainability.html   Redirect stub → about.html#sustainability
 people.html           People / team

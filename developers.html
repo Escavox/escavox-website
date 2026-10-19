@@ -35,10 +35,10 @@
     <nav class="nav-menu" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="about.html">Our Story</a>
+      <a href="people.html">Our People</a>
       <a href="platform.html">MyTracks&trade; Platform</a>
       <a href="devices.html">Devices</a>
-      <a href="developers.html" class="active">Developers</a>
-      <a href="people.html">Our People</a>
+      <a href="developers.html" class="active">Developer</a>
       <a href="news.html">News</a>
       <a href="faq.html">FAQ</a>
       <a href="app.html" class="nav-extra">Login</a>
@@ -55,39 +55,32 @@
 </header>
 
 <main id="main">
-<section class="page-hero">
-  <div class="container inner reveal">
-    <p class="crumb"><a href="index.html">Home</a> / Developers</p>
-    <span class="eyebrow" style="margin-top:14px">Developers</span>
-    <h1>Connect Escavox to your systems.</h1>
-    <p class="lead">The Escavox Integration Hub is where you plug Escavox shipment data and Cold Chain Intelligence into the systems your team already runs: ERP, WMS, TMS, QA and BI.</p>
-    <div class="hero-cta" style="margin-top:28px"><a href="https://integration.escavox.com/" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Open the Integration Hub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a href="contact.html?topic=api" class="btn btn-ghost btn-lg">Talk to our team</a></div>
+<!-- THE INTEGRATION HUB -->
+<section class="section dark hub">
+  <div class="container hub-grid">
+    <div class="hub-intro reveal">
+      <span class="eyebrow">The Integration Hub</span>
+      <h1>One place to connect to Escavox</h1>
+      <p class="lead">The Integration Hub is your developer portal: explore the API, manage access, and set up the connections that move Escavox data into your environment, all in one place.</p>
+      <ul class="hub-list">
+        <li><span class="hub-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Explore the API</b><span>Browse endpoints and interactive reference documentation.</span></div></li>
+        <li><span class="hub-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Manage access</b><span>Secure, token-based authentication for your integrations.</span></div></li>
+        <li><span class="hub-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Set up connections</b><span>Wire Escavox data into the systems your business runs on.</span></div></li>
+      </ul>
+    </div>
+    <div class="hub-side reveal d1">
+      <a href="https://integration.escavox.com/" target="_blank" rel="noopener" class="btn btn-primary btn-lg hub-cta">Open the Integration Hub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="hub-card">
+        <span class="eyebrow">Built on standards</span>
+        <ul class="hub-list hub-std">
+          <li><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><div><b>REST &amp; versioned</b><span>Predictable, versioned REST endpoints that are stable to build on.</span></div></li>
+          <li><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span><div><b>OpenAPI documented</b><span>A full OpenAPI specification so your team can generate clients fast.</span></div></li>
+          <li><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span><div><b>Secure by design</b><span>Token-based authentication and role-based access to your data.</span></div></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- WHAT YOU CAN CONNECT -->
-<section class="section" style="padding-top:clamp(24px,3vw,40px)">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow center">What you can connect</span>
-      <h2>Everything MyTracks&trade; knows, in your stack.</h2>
-      <p class="lead mt-s">The same data and intelligence behind the MyTracks&trade; platform, available to your own applications.</p>
-    </div>
-    <div class="grid grid-4">
-      <div class="card hover reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0Z"/></svg></div><h3>Live telemetry</h3><p>Temperature, humidity and dew point readings from every device, as they arrive.</p></div>
-      <div class="card hover reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Location &amp; journey</h3><p>Position history and route for road, air, sea and rail, origin to destination.</p></div>
-      <div class="card hover reveal d2"><div class="ico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0ZM12 9v4M12 17h.01"/></svg></div><h3>Events &amp; alerts</h3><p>Excursions, shock events (G6+) and journey milestones, so your systems react in time.</p></div>
-      <div class="card hover reveal d3"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4M12 8a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4ZM9 22h6"/></svg></div><h3>Intelligence</h3><p>VOP quality scores, shelf-life impact and commercial-risk ranking per shipment.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section-sm"><div class="container"><div class="cta-band reveal">
-  <h2>Ready to plug in?</h2>
-  <p>Our APIs, how to connect, and everything you need to get started live in the Escavox Integration Hub.</p>
-  <div class="btns"><a href="https://integration.escavox.com/" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Open the Integration Hub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a href="contact.html?topic=api" class="btn btn-light btn-lg">Talk to our team</a></div>
-</div></div></section>
 </main>
 
 <footer class="footer">
@@ -102,7 +95,7 @@
         <ul>
           <li><a href="platform.html">Platform</a></li>
           <li><a href="devices.html">Devices</a></li>
-          <li><a href="developers.html">Developers</a></li>
+          <li><a href="developers.html">Developer</a></li>
           <li><a href="people.html">People</a></li>
           <li><a href="about.html#sustainability">Sustainability</a></li>
           <li><a href="news.html">News</a></li>
