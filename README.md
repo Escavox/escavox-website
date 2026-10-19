@@ -27,7 +27,7 @@ local server is more accurate.)
 index.html            Home
 platform.html         My Tracks™ Platform
 devices.html          Devices (G6+, G6, G4, Escavox Lite)
-developers.html       Developers — API reference + "Open the Integration Hub" button (https://integration.escavox.com/)
+developers.html       Developers — intro + "Open the Integration Hub" buttons (https://integration.escavox.com/)
 about.html            Our Story (includes the Sustainability section, #sustainability)
 sustainability.html   Redirect stub → about.html#sustainability
 people.html           People / team
@@ -61,11 +61,8 @@ assets/img/
   names**. They are transparent PNGs cropped and colour-matched so they sit cleanly on the
   cards — if you drop in a new raw photo, match that treatment (trim white background,
   transparent) or they'll look inconsistent.
-- **Developers / API reference:** edit `js/developers-apis.js` only — base URL, auth, rate
-  limit, and every API with its endpoints, parameters and example responses. The page
-  (`developers.html`, rendered by `js/developers.js`) builds itself from that file. It ships as
-  a TEMPLATE with placeholder values; set `placeholder: false` once the real APIs are filled in
-  (that removes the "Placeholder" badges and banner). Don't go live with placeholders showing.
+- **Developers page:** an intro that sends people to the Escavox Integration Hub,
+  `https://integration.escavox.com/` (buttons open it in a new tab). API docs live in the hub.
 - **Homepage KPIs:** in `index.html`, search for `data-count`. The number in
   `data-count="18"` is what animates; the suffix (`k+`, `%`) and label sit right next to it.
 
