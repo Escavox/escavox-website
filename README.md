@@ -27,7 +27,7 @@ local server is more accurate.)
 index.html            Home
 platform.html         My Tracks™ Platform
 devices.html          Devices (G6+, G6, G4, Escavox Lite)
-developers.html       Developers — public API reference (content lives in js/developers-apis.js)
+developers.html       Developers — API reference + "Open the Integration Hub" button (https://integration.escavox.com/)
 about.html            Our Story (includes the Sustainability section, #sustainability)
 sustainability.html   Redirect stub → about.html#sustainability
 people.html           People / team
