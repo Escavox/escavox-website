@@ -112,6 +112,13 @@
   /* Contact form — submits to Web3Forms via AJAX, keeps inline success message */
   var form = document.querySelector("#contact-form");
   if (form) {
+    /* Developers page links here with ?topic=api — tag the enquiry and prefill the message */
+    if (/[?&]topic=api\b/.test(location.search)) {
+      var subj = form.querySelector('input[name="subject"]');
+      if (subj) subj.value = "API access request from the Escavox website";
+      var msg = form.querySelector("#message");
+      if (msg && !msg.value) msg.value = "We'd like API access to bring Escavox data into our own systems.\n\nSystems we want to connect (ERP, WMS, BI, etc.): \nData we need (live telemetry, alerts, VOP / shelf life, reports): ";
+    }
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
