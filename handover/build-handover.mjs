@@ -42,8 +42,9 @@ const FONTS = '<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital
 function rewriteScripts(html) {
   // shared JS lives in the uploads bundle, cached across every page
   return html
-    .replace(/src="js\/vendor\/motion\.js"/g, `src="${ASSET_BASE}/js/motion.js"`)
-    .replace(/src="js\/main\.js"/g, `src="${ASSET_BASE}/js/main.js"`);
+    .replace(/src="js\/vendor\/motion\.js(\?[^"]*)?"/g, `src="${ASSET_BASE}/js/motion.js$1"`)
+    .replace(/src="js\/consent\.js(\?[^"]*)?"/g, `src="${ASSET_BASE}/js/consent.js$1" data-policy="${SLUGS['cookie-policy']}"`)
+    .replace(/src="js\/main\.js(\?[^"]*)?"/g, `src="${ASSET_BASE}/js/main.js$1"`);
 }
 function rewriteLinks(html) {
   // internal page links  href="page.html"  or  href="page.html#frag"  ->  permalink
@@ -112,6 +113,7 @@ cpSync(join(SITE, 'assets/mytracks-demo.html'), join(OUT, 'assets-upload/escavox
 cpSync(join(SITE, 'css/styles.css'), join(OUT, 'assets-upload/escavox-site/css/styles.css'));
 cpSync(join(SITE, 'js/vendor/motion.js'), join(OUT, 'assets-upload/escavox-site/js/motion.js'));
 cpSync(join(SITE, 'js/main.js'), join(OUT, 'assets-upload/escavox-site/js/main.js'));
+cpSync(join(SITE, 'js/consent.js'), join(OUT, 'assets-upload/escavox-site/js/consent.js'));
 
 /* ---- SEO table so the vendor sets WP page title + meta per page --------- */
 const seoMd = `# Per-page SEO — set these in WordPress (page title + meta description)

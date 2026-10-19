@@ -2,19 +2,6 @@
 (function () {
   "use strict";
 
-  /* Google Analytics 4 (gtag.js) — loaded site-wide via main.js */
-  (function () {
-    var GA_ID = "G-3FF48SF577";
-    var s = document.createElement("script");
-    s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    gtag("js", new Date());
-    gtag("config", GA_ID);
-  })();
-
   var M = window.Motion;                                   // vendored motion.js (UMD global)
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canAnimate = !!(M && M.animate && M.inView) && !reduce;
@@ -115,6 +102,11 @@
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+      var captcha = form.querySelector('textarea[name="h-captcha-response"]');
+      if (form.querySelector(".h-captcha") && (!captcha || !captcha.value)) {
+        alert("Please complete the captcha check before sending.");
+        return;
+      }
 
       var ok = document.querySelector("#form-success");
       var btn = form.querySelector('button[type="submit"]');
@@ -137,24 +129,6 @@
         if (btn) { btn.disabled = false; btn.textContent = btnText; }
         alert("Sorry — your message couldn't be sent just now. Please email info@escavox.com and we'll get straight back to you.");
       });
-    });
-  }
-
-  /* Deep links (e.g. about.html#sustainability): jump instantly, then re-align once fonts settle.
-     A smooth anchor scroll computed before fonts load lands short/long of the target. */
-  if (location.hash.length > 1) {
-    var root = document.documentElement;
-    root.style.scrollBehavior = "auto";
-    window.addEventListener("load", function () {
-      var target = document.getElementById(location.hash.slice(1));
-      var settle = function () {
-        if (target) {
-          var hdr = document.querySelector(".header");
-          window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - (hdr ? hdr.offsetHeight + 8 : 0));
-        }
-        root.style.scrollBehavior = "";
-      };
-      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(settle);
     });
   }
 

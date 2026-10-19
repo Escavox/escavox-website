@@ -8,12 +8,30 @@
 Options -Indexes
 ErrorDocument 404 /404.html
 
+# ---- Keep internal docs and tooling out of the public site ----------------
+# (mirrors the 404 rules in netlify.toml)
+RedirectMatch 404 ^/\.(?!well-known/)
+RedirectMatch 404 ^/handover(/|$)
+RedirectMatch 404 \.md$
+RedirectMatch 404 ^/(package|package-lock|skills-lock)\.json$
+RedirectMatch 404 ^/netlify\.toml$
+
+# ---- Security headers (mirrors netlify.toml) --------------------------------
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'self' https://hcaptcha.com https://*.hcaptcha.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests"
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
   # ---- Canonical host: send apex -> www (comment out for non-www) --------
   RewriteCond %{HTTP_HOST} ^escavox\.com$ [NC]
-  RewriteRule ^(.*)$ https://www.escavox.com/%{REQUEST_URI} [R=301,L,NE]
+  RewriteRule ^(.*)$ https://www.escavox.com/$1 [R=301,L]
 
   # ---- Preserved news articles: old WP URL -> new page -------------------
   RewriteRule ^news/track-and-trace-delivers-for-pinata/?$ /track-and-trace-delivers-for-pinata.html [R=301,L]
@@ -32,8 +50,8 @@ ErrorDocument 404 /404.html
   RewriteRule ^our-difference/?$    /platform.html       [R=301,L]
   RewriteRule ^the-escavox-app/?$   /app.html            [R=301,L]
   RewriteRule ^faq/?$               /faq.html            [R=301,L]
-  RewriteRule ^sustainability(\.html|/)?$ /about.html#sustainability [R=301,L,NE]
-  RewriteRule ^developers/?$        /developers.html     [R=301,L]
+  RewriteRule ^sustainability\.html$ /about.html#sustainability [R=301,L,NE]
+  RewriteRule ^sustainability/?$    /about.html#sustainability [R=301,L,NE]
   RewriteRule ^reports/?$           /reports.html        [R=301,L]
 
   # ---- Data Centre "Got a tracker?" -> scan web app ----------------------

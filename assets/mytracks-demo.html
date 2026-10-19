@@ -123,7 +123,7 @@ function run(){reset(); requestAnimationFrame(()=>requestAnimationFrame(()=>{
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function showStatic(){ reset(); var d=$('#dashboard'); d.style.transition='none'; d.style.opacity=1; d.style.transform='none'; }
 showStatic();                                              // composed poster frame on load
-window.addEventListener('message', function(e){ if(e.data==='mt-run' && !RM) run(); });  // play when scrolled into view
+window.addEventListener('message', function(e){ if(e.origin===location.origin && e.data==='mt-run' && !RM) run(); });  // play when scrolled into view
 </script>
 </body>
 </html>

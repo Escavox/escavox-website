@@ -27,9 +27,7 @@ local server is more accurate.)
 index.html            Home
 platform.html         My Tracks™ Platform
 devices.html          Devices (G6+, G6, G4, Escavox Lite)
-developers.html       Developer — Integration Hub panel; "Open the Integration Hub" → https://integration.escavox.com/
-about.html            Our Story (includes the Sustainability section, #sustainability)
-sustainability.html   Redirect stub → about.html#sustainability
+sustainability.html   Sustainability
 people.html           People / team
 news.html             News
 faq.html              FAQ
@@ -37,7 +35,9 @@ contact.html          Contact (see form note below)
 
 css/styles.css        ALL styling. Colours/spacing live in :root at the top (design tokens).
 js/main.js            Scroll reveals, count-ups, hero globe, mobile nav, contact-form demo.
-js/vendor/motion.js   Vendored animation library (no install needed).
+js/consent.js         Cookie banner; loads Google Analytics only after the visitor accepts.
+js/vendor/            Vendored third-party JS (motion.js, plus three/gsap/lenis for experience.html).
+                      Provenance + hashes in js/vendor/README.md (no install needed).
 
 assets/img/
   escavox-logo.png, favicon.png
@@ -61,8 +61,6 @@ assets/img/
   names**. They are transparent PNGs cropped and colour-matched so they sit cleanly on the
   cards — if you drop in a new raw photo, match that treatment (trim white background,
   transparent) or they'll look inconsistent.
-- **Developers page:** an intro that sends people to the Escavox Integration Hub,
-  `https://integration.escavox.com/` (buttons open it in a new tab). API docs live in the hub.
 - **Homepage KPIs:** in `index.html`, search for `data-count`. The number in
   `data-count="18"` is what animates; the suffix (`k+`, `%`) and label sit right next to it.
 
@@ -112,9 +110,13 @@ Amazon S3 + CloudFront, etc.):
 - **Google Fonts** — `fonts.googleapis.com` / `fonts.gstatic.com` (PT Sans, Open Sans).
 - **Links out to** `www.escavox.com` — the **Login** button and the **News** article links
   currently point to the existing site. Update these if the destinations change.
-- The animation library (`motion.js`) is **vendored locally** — nothing to install.
-- There is currently **no analytics/tracking** and **no cookie banner**. Add GA4 / your
-  analytics and a consent banner if required before launch.
+- All third-party JavaScript libraries are **vendored locally** in `js/vendor/` — no CDN scripts.
+- **Google Analytics 4** (`G-3FF48SF577`) loads **only after a visitor accepts** the cookie banner
+  (`js/consent.js`). The Cookie and Privacy policies describe this; keep them in step if it changes.
+- **Security headers and hidden files:** `netlify.toml` (Netlify) and `.htaccess` (Apache/SiteGround)
+  set the security headers (including a Content-Security-Policy) and return 404 for internal files
+  (`*.md`, `handover/`, `package*.json`, dotfiles). If you add a new third-party service, add its
+  domain to the CSP in **both** files.
 
 ---
 
