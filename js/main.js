@@ -14,12 +14,62 @@
       var open = menu.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    menu.querySelectorAll("a").forEach(function (a) {
+    menu.querySelectorAll("a:not(.btn-primary)").forEach(function (a) {
       a.addEventListener("click", function () {
         menu.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });
     });
+  }
+
+  /* "Talk to us" chooser — order devices (existing customer) vs request a demo/quote.
+     Progressive enhancement: without JS the button stays a plain link to contact.html. */
+  var talkButtons = document.querySelectorAll('.nav-menu a.btn-primary[href$="contact.html"], .nav-actions a.btn-primary[href$="contact.html"]');
+  if (talkButtons.length) {
+    var talkMenu = document.createElement("div");
+    talkMenu.className = "talk-menu";
+    talkMenu.setAttribute("role", "menu");
+    talkMenu.innerHTML =
+      '<a role="menuitem" href="contact.html?enquiry=devices"><strong>Order devices</strong><span>I’m an existing Escavox customer</span></a>' +
+      '<a role="menuitem" href="contact.html?enquiry=demo"><strong>Request a demo or quote</strong><span>I’d like to explore Escavox for my supply chain</span></a>';
+    document.body.appendChild(talkMenu);
+
+    var talkOpenFor = null;
+    var closeTalkMenu = function () {
+      talkMenu.classList.remove("open");
+      if (talkOpenFor) talkOpenFor.setAttribute("aria-expanded", "false");
+      talkOpenFor = null;
+    };
+
+    talkButtons.forEach(function (btn) {
+      btn.setAttribute("aria-haspopup", "menu");
+      btn.setAttribute("aria-expanded", "false");
+      btn.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (talkOpenFor === btn) { closeTalkMenu(); return; }
+        closeTalkMenu();
+        talkOpenFor = btn;
+        btn.setAttribute("aria-expanded", "true");
+        talkMenu.classList.add("open");
+        var rect = btn.getBoundingClientRect();
+        var width = talkMenu.offsetWidth;
+        var left = Math.max(12, Math.min(rect.right - width, window.innerWidth - width - 12));
+        talkMenu.style.left = left + "px";
+        talkMenu.style.top = (rect.bottom + 10) + "px";
+        var first = talkMenu.querySelector("a");
+        if (first) first.focus();
+      });
+    });
+
+    document.addEventListener("click", function (ev) {
+      if (talkOpenFor && !talkMenu.contains(ev.target)) closeTalkMenu();
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape" && talkOpenFor) { var b = talkOpenFor; closeTalkMenu(); b.focus(); }
+    });
+    window.addEventListener("scroll", closeTalkMenu, { passive: true });
+    window.addEventListener("resize", closeTalkMenu);
   }
 
   /* Sticky header shadow on scroll */
@@ -99,9 +149,46 @@
   /* Contact form — submits to Web3Forms via AJAX, keeps inline success message */
   var form = document.querySelector("#contact-form");
   if (form) {
+    /* Pre-select the enquiry type from ?enquiry= (set by the "Talk to us" chooser)
+       and keep the email subject in step with the selection. */
+    var enquirySelect = form.querySelector("#enquiry");
+    if (enquirySelect) {
+      var enquiryMap = { devices: "Order devices (existing customer)", demo: "Request a demo or quote" };
+      var enquiryParam = new URLSearchParams(window.location.search).get("enquiry");
+      if (enquiryParam && enquiryMap[enquiryParam]) enquirySelect.value = enquiryMap[enquiryParam];
+      var subjectInput = form.querySelector('input[name="subject"]');
+      var syncSubject = function () {
+        if (!subjectInput) return;
+        if (enquirySelect.value === enquiryMap.devices) subjectInput.value = "Device order request from the Escavox website";
+        else if (enquirySelect.value === enquiryMap.demo) subjectInput.value = "Demo / quote request from the Escavox website";
+        else subjectInput.value = "New enquiry from the Escavox website";
+      };
+      /* Show the device picker only for device orders; disabled inputs stay out of the payload. */
+      var deviceOrder = form.querySelector("#device-order");
+      var syncDeviceOrder = function () {
+        if (!deviceOrder) return;
+        var on = enquirySelect.value === enquiryMap.devices;
+        deviceOrder.hidden = !on;
+        deviceOrder.querySelectorAll("input").forEach(function (i) { i.disabled = !on; });
+      };
+      enquirySelect.addEventListener("change", function () { syncSubject(); syncDeviceOrder(); });
+      syncSubject();
+      syncDeviceOrder();
+    }
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+      var devicePanel = form.querySelector("#device-order");
+      if (devicePanel && !devicePanel.hidden) {
+        var anyQty = Array.prototype.some.call(devicePanel.querySelectorAll("input"), function (i) {
+          return parseInt(i.value, 10) > 0;
+        });
+        if (!anyQty) {
+          alert("Please enter a quantity for at least one device type.");
+          return;
+        }
+      }
       var captcha = form.querySelector('textarea[name="h-captcha-response"]');
       if (form.querySelector(".h-captcha") && (!captcha || !captcha.value)) {
         alert("Please complete the captcha check before sending.");
@@ -114,7 +201,10 @@
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
       var payload = {};
-      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+      new FormData(form).forEach(function (value, key) {
+        if (value === "" || (/\(qty\)$/.test(key) && !(parseInt(value, 10) > 0))) return; // keep the email free of blank fields and zero quantities
+        payload[key] = value;
+      });
 
       fetch(form.getAttribute("action") || "https://api.web3forms.com/submit", {
         method: "POST",
