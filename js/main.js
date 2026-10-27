@@ -163,13 +163,32 @@
         else if (enquirySelect.value === enquiryMap.demo) subjectInput.value = "Demo / quote request from the Escavox website";
         else subjectInput.value = "New enquiry from the Escavox website";
       };
-      enquirySelect.addEventListener("change", syncSubject);
+      /* Show the device picker only for device orders; disabled inputs stay out of the payload. */
+      var deviceOrder = form.querySelector("#device-order");
+      var syncDeviceOrder = function () {
+        if (!deviceOrder) return;
+        var on = enquirySelect.value === enquiryMap.devices;
+        deviceOrder.hidden = !on;
+        deviceOrder.querySelectorAll("input").forEach(function (i) { i.disabled = !on; });
+      };
+      enquirySelect.addEventListener("change", function () { syncSubject(); syncDeviceOrder(); });
       syncSubject();
+      syncDeviceOrder();
     }
 
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
+      var devicePanel = form.querySelector("#device-order");
+      if (devicePanel && !devicePanel.hidden) {
+        var anyQty = Array.prototype.some.call(devicePanel.querySelectorAll("input"), function (i) {
+          return parseInt(i.value, 10) > 0;
+        });
+        if (!anyQty) {
+          alert("Please enter a quantity for at least one device type.");
+          return;
+        }
+      }
       var captcha = form.querySelector('textarea[name="h-captcha-response"]');
       if (form.querySelector(".h-captcha") && (!captcha || !captcha.value)) {
         alert("Please complete the captcha check before sending.");
@@ -182,7 +201,10 @@
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
       var payload = {};
-      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+      new FormData(form).forEach(function (value, key) {
+        if (value === "" || (/\(qty\)$/.test(key) && !(parseInt(value, 10) > 0))) return; // keep the email free of blank fields and zero quantities
+        payload[key] = value;
+      });
 
       fetch(form.getAttribute("action") || "https://api.web3forms.com/submit", {
         method: "POST",

@@ -83,6 +83,15 @@
               <option>Something else</option>
             </select>
           </div>
+          <fieldset id="device-order" class="device-order" hidden>
+            <legend>Which devices, and how many?</legend>
+            <div class="device-row"><label for="qty-g6plus">Escavox G6+</label><input id="qty-g6plus" name="Escavox G6+ (qty)" type="number" min="0" step="1" inputmode="numeric" placeholder="0" disabled></div>
+            <div class="device-row"><label for="qty-g6">Escavox G6</label><input id="qty-g6" name="Escavox G6 (qty)" type="number" min="0" step="1" inputmode="numeric" placeholder="0" disabled></div>
+            <div class="device-row"><label for="qty-g6plus-probe">Escavox G6+ Probe</label><input id="qty-g6plus-probe" name="Escavox G6+ Probe (qty)" type="number" min="0" step="1" inputmode="numeric" placeholder="0" disabled></div>
+            <div class="device-row"><label for="qty-bluebox">Blue Box G4</label><input id="qty-bluebox" name="Blue Box G4 (qty)" type="number" min="0" step="1" inputmode="numeric" placeholder="0" disabled></div>
+            <div class="device-row"><label for="qty-usb">Escavox USB</label><input id="qty-usb" name="Escavox USB (qty)" type="number" min="0" step="1" inputmode="numeric" placeholder="0" disabled></div>
+            <p class="device-note">Not sure which device? See <a href="devices.html">our devices</a> or tell us in the message below.</p>
+          </fieldset>
           <div class="field-2">
             <div class="field"><label for="fname">First name <span class="req">*</span></label><input id="fname" name="First Name" type="text" autocomplete="given-name" required></div>
             <div class="field"><label for="lname">Last name <span class="req">*</span></label><input id="lname" name="Last Name" type="text" autocomplete="family-name" required></div>
