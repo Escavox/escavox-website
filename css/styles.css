@@ -771,3 +771,16 @@ section { position: relative; }
 .legal .note { background: var(--bg-tint); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: var(--r-md); padding: 16px 18px; margin: 0 0 24px; font-size: .95rem; }
 .footer-legal { display: inline-flex; flex-wrap: wrap; gap: 4px 8px; }
 .footer-legal a { white-space: nowrap; }
+
+/* ============ "Talk to us" chooser menu ============ */
+.talk-menu {
+  position: fixed; z-index: 1100; min-width: 300px; max-width: calc(100vw - 24px);
+  background: #fff; border: 1px solid var(--blue-100); border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg); padding: 8px; display: none;
+}
+.talk-menu.open { display: block; }
+.talk-menu a { display: block; padding: 12px 14px; border-radius: var(--r-sm); }
+.talk-menu a + a { margin-top: 2px; }
+.talk-menu a:hover, .talk-menu a:focus-visible { background: var(--blue-50); }
+.talk-menu a strong { display: block; font-family: var(--font-head); font-weight: 700; color: var(--ink-900); }
+.talk-menu a span { display: block; font-size: .88rem; color: var(--ink-500); margin-top: 2px; }

@@ -56,6 +56,14 @@
           <input type="hidden" name="subject" value="New enquiry from the Escavox website">
           <input type="hidden" name="from_name" value="Escavox website">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+          <div class="field"><label for="enquiry">What can we help with? <span class="req">*</span></label>
+            <select id="enquiry" name="Enquiry Type" required>
+              <option value="">Select an option</option>
+              <option>Order devices (existing customer)</option>
+              <option>Request a demo or quote</option>
+              <option>Something else</option>
+            </select>
+          </div>
           <div class="field-2">
             <div class="field"><label for="fname">First name <span class="req">*</span></label><input id="fname" name="First Name" type="text" autocomplete="given-name" required></div>
             <div class="field"><label for="lname">Last name <span class="req">*</span></label><input id="lname" name="Last Name" type="text" autocomplete="family-name" required></div>
