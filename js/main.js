@@ -169,7 +169,7 @@
         if (!deviceOrder) return;
         var on = enquirySelect.value === enquiryMap.devices;
         deviceOrder.hidden = !on;
-        deviceOrder.querySelectorAll("input").forEach(function (i) { i.disabled = !on; });
+        deviceOrder.querySelectorAll("input, textarea").forEach(function (i) { i.disabled = !on; });
       };
       enquirySelect.addEventListener("change", function () { syncSubject(); syncDeviceOrder(); });
       syncSubject();
@@ -181,7 +181,7 @@
       if (form.checkValidity && !form.checkValidity()) { form.reportValidity(); return; }
       var devicePanel = form.querySelector("#device-order");
       if (devicePanel && !devicePanel.hidden) {
-        var anyQty = Array.prototype.some.call(devicePanel.querySelectorAll("input"), function (i) {
+        var anyQty = Array.prototype.some.call(devicePanel.querySelectorAll('input[type="number"]'), function (i) {
           return parseInt(i.value, 10) > 0;
         });
         if (!anyQty) {
