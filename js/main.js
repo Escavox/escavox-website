@@ -185,7 +185,7 @@
           return parseInt(i.value, 10) > 0;
         });
         if (!anyQty) {
-          alert("Please enter a quantity for at least one device type.");
+          alert("Please enter a number of units for at least one device type.");
           return;
         }
       }
@@ -202,7 +202,7 @@
 
       var payload = {};
       new FormData(form).forEach(function (value, key) {
-        if (value === "" || (/\(qty\)$/.test(key) && !(parseInt(value, 10) > 0))) return; // keep the email free of blank fields and zero quantities
+        if (value === "" || (/\(units\)$/.test(key) && !(parseInt(value, 10) > 0))) return; // keep the email free of blank fields and zero quantities
         payload[key] = value;
       });
 
