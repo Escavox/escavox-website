@@ -87,6 +87,12 @@
   status = 404
   force = true
 
+# ---- Short aliases -------------------------------------------------------------
+[[redirects]]
+  from = "/south-africa"
+  to = "/cold-chain-monitoring-south-africa.html"
+  status = 301
+
 # ---- Legacy WordPress URLs (mirrors .htaccess) --------------------------------
 [[redirects]]
   from = "/news/track-and-trace-delivers-for-pinata"

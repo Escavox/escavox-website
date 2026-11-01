@@ -72,3 +72,6 @@ RedirectMatch 404 ^/netlify\.toml$
   ExpiresByType text/css   "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
+
+# Short alias
+RedirectMatch 301 ^/south-africa/?$ /cold-chain-monitoring-south-africa.html
